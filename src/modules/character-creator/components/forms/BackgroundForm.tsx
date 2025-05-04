@@ -3,6 +3,7 @@
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { BackgroundConfig } from "@/lib/types"
+import { useI18n } from "@/lib/i18n"
 import { 
   Select,
   SelectContent,
@@ -17,6 +18,7 @@ interface BackgroundFormProps {
 }
 
 export function BackgroundForm({ config = {}, updateConfig }: BackgroundFormProps) {
+  const { t } = useI18n();
   const handleSkyChange = (value: string) => {
     updateConfig({
       ...config,
@@ -41,15 +43,15 @@ export function BackgroundForm({ config = {}, updateConfig }: BackgroundFormProp
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Background</h3>
+        <h3 className="text-lg font-medium">{t('modules.character-creator.components.forms.BackgroundForm.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Configure the background elements for your character illustration
+          {t('modules.character-creator.components.forms.BackgroundForm.description')}
         </p>
       </div>
       
       <div className="space-y-4">
         <div className="grid gap-2">
-          <Label htmlFor="sky">Sky Type</Label>
+          <Label htmlFor="sky">{t('modules.character-creator.components.forms.BackgroundForm.sky.label')}</Label>
           <Select 
             value={config.sky || 'stormy'} 
             onValueChange={handleSkyChange}
@@ -64,15 +66,15 @@ export function BackgroundForm({ config = {}, updateConfig }: BackgroundFormProp
             </SelectContent>
           </Select>
           <p className="text-xs text-muted-foreground">
-            The appearance of the sky in the background
+            {t('modules.character-creator.components.forms.BackgroundForm.sky.description')}
           </p>
         </div>
         
         <div className="flex items-center justify-between rounded-lg border p-4">
           <div className="space-y-0.5">
-            <Label htmlFor="clouds">Clouds</Label>
+            <Label htmlFor="clouds">{t('modules.character-creator.components.forms.BackgroundForm.clouds.label')}</Label>
             <div className="text-xs text-muted-foreground">
-              Add clouds to the background sky
+              {t('modules.character-creator.components.forms.BackgroundForm.clouds.description')}
             </div>
           </div>
           <Switch
@@ -84,9 +86,9 @@ export function BackgroundForm({ config = {}, updateConfig }: BackgroundFormProp
         
         <div className="flex items-center justify-between rounded-lg border p-4">
           <div className="space-y-0.5">
-            <Label htmlFor="lightning">Lightning</Label>
+            <Label htmlFor="lightning">{t('modules.character-creator.components.forms.BackgroundForm.lightning.label')}</Label>
             <div className="text-xs text-muted-foreground">
-              Add lightning effects to the background
+              {t('modules.character-creator.components.forms.BackgroundForm.lightning.description')}
             </div>
           </div>
           <Switch

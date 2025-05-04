@@ -4,13 +4,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ColoringBookIllustrationConfig } from "@/lib/types"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
-import { races, classes } from "../data/races-classes"
+import { useRacesClasses } from "../data/useRacesClasses"
 
 interface CharacterPreviewProps {
   config: ColoringBookIllustrationConfig
 }
 
 export function CharacterPreview({ config }: CharacterPreviewProps) {
+  const { races, classes } = useRacesClasses()
+  
   const getRaceName = (id?: string) => {
     if (!id) return "Not selected"
     const race = races.find(r => r.id === id)

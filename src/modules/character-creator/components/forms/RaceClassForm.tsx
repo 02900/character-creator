@@ -11,8 +11,9 @@ import {
 import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
 import { CharacterConfig } from "@/lib/types"
-import { races, classes } from "../../data/races-classes"
+import { useRacesClasses } from "../../data/useRacesClasses"
 import { Separator } from "@/components/ui/separator"
+import { useI18n } from "@/lib/i18n"
 
 interface RaceClassFormProps {
   config: CharacterConfig
@@ -20,6 +21,8 @@ interface RaceClassFormProps {
 }
 
 export function RaceClassForm({ config, updateConfig }: RaceClassFormProps) {
+  const { t } = useI18n();
+  const { races, classes } = useRacesClasses();
   const [selectedRace, setSelectedRace] = useState(config.race || "")
   const [selectedClass, setSelectedClass] = useState(config.class || "")
   const [raceDescription, setRaceDescription] = useState("")
@@ -32,7 +35,7 @@ export function RaceClassForm({ config, updateConfig }: RaceClassFormProps) {
     } else {
       setRaceDescription("")
     }
-  }, [selectedRace])
+  }, [selectedRace, races])
 
   useEffect(() => {
     if (selectedClass) {
@@ -41,7 +44,7 @@ export function RaceClassForm({ config, updateConfig }: RaceClassFormProps) {
     } else {
       setClassDescription("")
     }
-  }, [selectedClass])
+  }, [selectedClass, classes])
 
   const handleRaceChange = (value: string) => {
     setSelectedRace(value)
@@ -62,22 +65,22 @@ export function RaceClassForm({ config, updateConfig }: RaceClassFormProps) {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Raza y Clase</h3>
+        <h3 className="text-lg font-medium">{t('modules.character-creator.components.forms.RaceClassForm.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Selecciona la raza y clase para tu personaje
+          {t('modules.character-creator.components.forms.RaceClassForm.description')}
         </p>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-3">
           <div className="grid gap-2">
-            <Label htmlFor="race">Raza</Label>
+            <Label htmlFor="race">{t('modules.character-creator.components.forms.RaceClassForm.race')}</Label>
             <Select 
               value={selectedRace} 
               onValueChange={handleRaceChange}
             >
               <SelectTrigger id="race">
-                <SelectValue placeholder="Selecciona una raza" />
+                <SelectValue placeholder={t('modules.character-creator.components.forms.RaceClassForm.raceSelectPlaceholder')} />
               </SelectTrigger>
               <SelectContent className="max-h-[300px]">
                 {races.map(race => (
@@ -100,13 +103,13 @@ export function RaceClassForm({ config, updateConfig }: RaceClassFormProps) {
         
         <div className="space-y-3">
           <div className="grid gap-2">
-            <Label htmlFor="class">Clase</Label>
+            <Label htmlFor="class">{t('modules.character-creator.components.forms.RaceClassForm.class')}</Label>
             <Select 
               value={selectedClass} 
               onValueChange={handleClassChange}
             >
               <SelectTrigger id="class">
-                <SelectValue placeholder="Selecciona una clase" />
+                <SelectValue placeholder={t('modules.character-creator.components.forms.RaceClassForm.classSelectPlaceholder')} />
               </SelectTrigger>
               <SelectContent className="max-h-[300px]">
                 {classes.map(classObj => (
@@ -133,12 +136,15 @@ export function RaceClassForm({ config, updateConfig }: RaceClassFormProps) {
       <div>
         {selectedRace && selectedClass && (
           <div className="rounded-md bg-muted p-4">
-            <p className="font-medium">Combinación de Raza y Clase</p>
+            <p className="font-medium">{t('modules.character-creator.components.forms.RaceClassForm.combination.title')}</p>
             <p className="text-sm mt-1">
-              Has seleccionado {races.find(r => r.id === selectedRace)?.name} como raza y {classes.find(c => c.id === selectedClass)?.name} como clase.
+              {t('modules.character-creator.components.forms.RaceClassForm.combination.description', {
+                race: races.find(r => r.id === selectedRace)?.name || selectedRace,
+                class: classes.find(c => c.id === selectedClass)?.name || selectedClass
+              })}
             </p>
             <p className="text-sm mt-2">
-              Esta combinación afectará las características y habilidades de tu personaje.
+              {t('modules.character-creator.components.forms.RaceClassForm.combination.effect')}
             </p>
           </div>
         )}
