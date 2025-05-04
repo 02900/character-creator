@@ -15,10 +15,20 @@ import { CompositionForm } from "./components/forms/CompositionForm";
 import { ColoringBookIllustrationConfig, defaultConfig } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useI18n } from "@/lib/i18n";
+import { exportCharacterInLanguage, downloadJson } from "./utils/characterExport";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Languages } from "lucide-react";
 
 export function CharacterCreator() {
   const [config, setConfig] =
     useState<ColoringBookIllustrationConfig>(defaultConfig);
+  const { t } = useI18n();
 
   const updateConfig = (
     partialConfig: Partial<ColoringBookIllustrationConfig>
@@ -49,9 +59,34 @@ export function CharacterCreator() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 
-    toast("Configuration exported.", {
-      description: "Character configuration has been exported as JSON.",
+    toast(t("common.exportSuccess"), {
+      description: t("common.exportDescription"),
     });
+  };
+  
+  // Export character data with language-specific translations
+  const exportTranslatedConfig = (language: 'en' | 'es') => {
+    try {
+      // Get translated configuration data
+      const translatedData = exportCharacterInLanguage(config, language);
+      
+      // Generate filename with language code
+      const filename = `character-${language}.json`;
+      
+      // Download the translated configuration
+      downloadJson(translatedData, filename);
+      
+      // Show success message with language name
+      const languageName = language === 'en' ? 'English' : 'Español';
+      toast(t("common.exportSuccess"), {
+        description: t("common.exportLanguageDescription", { language: languageName }),
+      });
+    } catch (error) {
+      console.error('Export failed:', error);
+      toast.error(t("common.exportError"), {
+        description: t("common.exportErrorDescription"),
+      });
+    }
   };
 
   return (
@@ -130,9 +165,29 @@ export function CharacterCreator() {
 
         <div className="mt-4 flex justify-end space-x-2">
           <Button variant="outline" onClick={resetConfig}>
-            Reset
+            {t("common.reset") || "Reset"}
           </Button>
-          <Button onClick={exportConfig}>Export Configuration</Button>
+          
+          <Button onClick={exportConfig}>
+            {t("common.exportConfig") || "Export Configuration"}
+          </Button>
+          
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline">
+                <Languages className="mr-2 h-4 w-4" />
+                {t("common.exportTranslated") || "Export Translated"}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => exportTranslatedConfig('en')}>
+                {(t("common.exportIn") || "Export in") + " English"}
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => exportTranslatedConfig('es')}>
+                {(t("common.exportIn") || "Export in") + " Español"}
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
 
