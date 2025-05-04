@@ -30,7 +30,6 @@ export interface LineArtConfig {
 export interface CharacterConfig {
   race?: string; // ID of the selected race
   class?: string; // ID of the selected class
-  role: string; // e.g. "Undead Sorcerer"
   pose: 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle';
   expression: string;
   hands: {
@@ -78,7 +77,6 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
   character: {
     race: 'undead',
     class: 'necromancer',
-    role: 'Undead Sorcerer',
     pose: 'three_quarter',
     expression: 'piercing hollow eyes under hood',
     hands: {
