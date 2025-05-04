@@ -16,12 +16,6 @@ export default function CharacterCreatorPage() {
       <div className="flex min-h-screen flex-col">
         <SiteHeader />
         <div className="container flex-1 space-y-4 p-8 pt-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-3xl font-bold tracking-tight">
-              Character Creator
-            </h2>
-          </div>
-
           <Suspense>
             <CharacterCreator />
           </Suspense>
