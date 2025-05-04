@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
       >
-        <I18nProvider>
+        <I18nProvider initialLocale={"en"}>
           {children}
           <Toaster />
         </I18nProvider>
