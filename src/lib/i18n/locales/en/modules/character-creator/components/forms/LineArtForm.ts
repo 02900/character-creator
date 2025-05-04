@@ -2,6 +2,11 @@ export const LineArtForm = {
   title: 'Line Art Settings',
   description: 'Configure the line art style for your character',
   lineWeight: 'Line Weight',
+  weights: {
+    bold: 'Bold',
+    medium: 'Medium',
+    fine: 'Fine'
+  },
   cleanLines: {
     label: 'Clean Lines',
     description: 'Ensure lines are clean and well-defined'

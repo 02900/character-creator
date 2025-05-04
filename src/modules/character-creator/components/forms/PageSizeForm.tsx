@@ -34,7 +34,7 @@ export function PageSizeForm({ config, updateConfig }: PageSizeFormProps) {
             htmlFor="8.5x11"
             className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
-            <span>8.5 x 11</span>
+            <span>{t('modules.character-creator.components.forms.PageSizeForm.sizes.85x11')}</span>
           </Label>
         </div>
         
@@ -44,7 +44,7 @@ export function PageSizeForm({ config, updateConfig }: PageSizeFormProps) {
             htmlFor="A4"
             className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
-            <span>A4</span>
+            <span>{t('modules.character-creator.components.forms.PageSizeForm.sizes.A4')}</span>
           </Label>
         </div>
         
@@ -54,7 +54,7 @@ export function PageSizeForm({ config, updateConfig }: PageSizeFormProps) {
             htmlFor="Letter"
             className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
-            <span>Letter</span>
+            <span>{t('modules.character-creator.components.forms.PageSizeForm.sizes.Letter')}</span>
           </Label>
         </div>
       </RadioGroup>

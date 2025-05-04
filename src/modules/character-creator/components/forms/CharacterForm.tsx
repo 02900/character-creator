@@ -140,14 +140,14 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
             onValueChange={handlePoseChange}
           >
             <SelectTrigger id="pose">
-              <SelectValue placeholder="Select a pose" />
+              <SelectValue placeholder={t('modules.character-creator.components.forms.CharacterForm.poseSelect')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="frontal">Frontal</SelectItem>
-              <SelectItem value="three_quarter">Three Quarter</SelectItem>
-              <SelectItem value="side">Side</SelectItem>
-              <SelectItem value="low_angle">Low Angle</SelectItem>
-              <SelectItem value="high_angle">High Angle</SelectItem>
+              <SelectItem value="frontal">{t('modules.character-creator.components.forms.CharacterForm.poses.frontal')}</SelectItem>
+              <SelectItem value="three_quarter">{t('modules.character-creator.components.forms.CharacterForm.poses.three_quarter')}</SelectItem>
+              <SelectItem value="side">{t('modules.character-creator.components.forms.CharacterForm.poses.side')}</SelectItem>
+              <SelectItem value="low_angle">{t('modules.character-creator.components.forms.CharacterForm.poses.low_angle')}</SelectItem>
+              <SelectItem value="high_angle">{t('modules.character-creator.components.forms.CharacterForm.poses.high_angle')}</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -164,12 +164,12 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
                 onValueChange={handleRightHandChange}
               >
                 <SelectTrigger id="right-hand">
-                  <SelectValue placeholder="Select position" />
+                  <SelectValue placeholder={t('modules.character-creator.components.forms.CharacterForm.handPositionSelect')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="clawed_upward">Clawed Upward</SelectItem>
-                  <SelectItem value="open_palm">Open Palm</SelectItem>
-                  <SelectItem value="two_fingers_cast">Two Fingers Cast</SelectItem>
+                  <SelectItem value="clawed_upward">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.clawed_upward')}</SelectItem>
+                  <SelectItem value="open_palm">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.open_palm')}</SelectItem>
+                  <SelectItem value="two_fingers_cast">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.two_fingers_cast')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -181,12 +181,12 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
                 onValueChange={handleLeftHandChange}
               >
                 <SelectTrigger id="left-hand">
-                  <SelectValue placeholder="Select position" />
+                  <SelectValue placeholder={t('modules.character-creator.components.forms.CharacterForm.handPositionSelect')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="open_loose">Open Loose</SelectItem>
-                  <SelectItem value="spirit_guiding">Spirit Guiding</SelectItem>
-                  <SelectItem value="half_fist">Half Fist</SelectItem>
+                  <SelectItem value="open_loose">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.open_loose')}</SelectItem>
+                  <SelectItem value="spirit_guiding">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.spirit_guiding')}</SelectItem>
+                  <SelectItem value="half_fist">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.half_fist')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -215,11 +215,11 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
                 onValueChange={handleClothingFlowChange}
               >
                 <SelectTrigger id="clothing-flow">
-                  <SelectValue placeholder="Select flow style" />
+                  <SelectValue placeholder={t('modules.character-creator.components.forms.CharacterForm.flowStyleSelect')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="dynamic">Dynamic</SelectItem>
-                  <SelectItem value="still">Still</SelectItem>
+                  <SelectItem value="dynamic">{t('modules.character-creator.components.forms.CharacterForm.clothing.flowTypes.dynamic')}</SelectItem>
+                  <SelectItem value="still">{t('modules.character-creator.components.forms.CharacterForm.clothing.flowTypes.still')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>

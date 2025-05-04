@@ -80,13 +80,13 @@ export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
               onValueChange={handleMagicTypeChange}
             >
               <SelectTrigger id="magic-type">
-                <SelectValue placeholder="Select type" />
+                <SelectValue placeholder={t('modules.character-creator.components.forms.EffectsForm.typeSelect')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="spiral">Spiral</SelectItem>
-                <SelectItem value="orb">Orb</SelectItem>
-                <SelectItem value="flame">Flame</SelectItem>
-                <SelectItem value="aura">Aura</SelectItem>
+                <SelectItem value="spiral">{t('modules.character-creator.components.forms.EffectsForm.magic.types.spiral')}</SelectItem>
+                <SelectItem value="orb">{t('modules.character-creator.components.forms.EffectsForm.magic.types.orb')}</SelectItem>
+                <SelectItem value="flame">{t('modules.character-creator.components.forms.EffectsForm.magic.types.flame')}</SelectItem>
+                <SelectItem value="aura">{t('modules.character-creator.components.forms.EffectsForm.magic.types.aura')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -98,11 +98,11 @@ export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
               onValueChange={handleMagicIntensityChange}
             >
               <SelectTrigger id="magic-intensity">
-                <SelectValue placeholder="Select intensity" />
+                <SelectValue placeholder={t('modules.character-creator.components.forms.EffectsForm.intensitySelect')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="subtle">Subtle</SelectItem>
-                <SelectItem value="strong">Strong</SelectItem>
+                <SelectItem value="subtle">{t('modules.character-creator.components.forms.EffectsForm.magic.intensities.subtle')}</SelectItem>
+                <SelectItem value="strong">{t('modules.character-creator.components.forms.EffectsForm.magic.intensities.strong')}</SelectItem>
               </SelectContent>
             </Select>
           </div>

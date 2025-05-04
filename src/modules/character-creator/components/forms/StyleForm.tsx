@@ -34,7 +34,7 @@ export function StyleForm({ config, updateConfig }: StyleFormProps) {
             htmlFor="anime"
             className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
-            <span>Anime</span>
+            <span>{t('modules.character-creator.components.forms.StyleForm.styles.anime')}</span>
           </Label>
         </div>
         
@@ -44,7 +44,7 @@ export function StyleForm({ config, updateConfig }: StyleFormProps) {
             htmlFor="chibi"
             className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
-            <span>Chibi</span>
+            <span>{t('modules.character-creator.components.forms.StyleForm.styles.chibi')}</span>
           </Label>
         </div>
         
@@ -54,7 +54,7 @@ export function StyleForm({ config, updateConfig }: StyleFormProps) {
             htmlFor="dark_fantasy"
             className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
-            <span>Dark Fantasy</span>
+            <span>{t('modules.character-creator.components.forms.StyleForm.styles.dark_fantasy')}</span>
           </Label>
         </div>
         
@@ -64,7 +64,7 @@ export function StyleForm({ config, updateConfig }: StyleFormProps) {
             htmlFor="isekai"
             className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
-            <span>Isekai</span>
+            <span>{t('modules.character-creator.components.forms.StyleForm.styles.isekai')}</span>
           </Label>
         </div>
         
@@ -74,7 +74,7 @@ export function StyleForm({ config, updateConfig }: StyleFormProps) {
             htmlFor="manga"
             className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
-            <span>Manga</span>
+            <span>{t('modules.character-creator.components.forms.StyleForm.styles.manga')}</span>
           </Label>
         </div>
       </RadioGroup>
