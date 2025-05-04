@@ -99,7 +99,25 @@ export const CharacterForm = {
     patterns: {
       label: 'Patrones',
       placeholder: 'Añadir un patrón',
-      addButton: 'Añadir'
+      addButton: 'Añadir',
+      predefinedLabel: 'Patrones Comunes',
+      options: {
+        floral: 'Floral',
+        geometric: 'Geométrico',
+        runic: 'Rúnico',
+        celestial: 'Celestial',
+        tribal: 'Tribal',
+        draconic: 'Dracónico',
+        arcane_symbols: 'Símbolos Arcanos',
+        elemental: 'Elemental',
+        royal_crest: 'Escudo Real',
+        divine_sigils: 'Sigilos Divinos',
+        demonic_markings: 'Marcas Demoníacas',
+        nature_motifs: 'Motivos Naturales',
+        astral_signs: 'Signos Astrales',
+        ancient_script: 'Escritura Antigua',
+        guild_insignia: 'Insignia de Gremio'
+      }
     }
   }
 };

@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { useI18n } from "@/lib/i18n"
 import { useClothingTypes } from "@/modules/character-creator/data/useClothingTypes"
 import { useCharacterExpressions } from "@/modules/character-creator/data/useCharacterExpressions"
+import { useClothingPatterns } from "@/modules/character-creator/data/useClothingPatterns"
 import { 
   Select,
   SelectContent,
@@ -28,6 +29,7 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
   const { t } = useI18n();
   const { clothingTypes } = useClothingTypes();
   const { expressions } = useCharacterExpressions();
+  const { patterns: predefinedPatterns } = useClothingPatterns();
   const [newPattern, setNewPattern] = useState("")
 
 
@@ -263,21 +265,50 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
                   </Badge>
                 ))}
               </div>
-              <div className="flex gap-2">
-                <Input 
-                  placeholder={t('modules.character-creator.components.forms.CharacterForm.clothing.patterns.placeholder')} 
-                  value={newPattern}
-                  onChange={(e) => setNewPattern(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault()
-                      addPattern()
-                    }
-                  }}
-                />
-                <Button onClick={addPattern} size="sm" type="button">
-                  {t('modules.character-creator.components.forms.CharacterForm.clothing.patterns.addButton')}
-                </Button>
+                 <div className="space-y-4">
+                <div className="flex gap-2">
+                  <Input 
+                    placeholder={t('modules.character-creator.components.forms.CharacterForm.clothing.patterns.placeholder')} 
+                    value={newPattern}
+                    onChange={(e) => setNewPattern(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault()
+                        addPattern()
+                      }
+                    }}
+                  />
+                  <Button onClick={addPattern} size="sm" type="button">
+                    {t('modules.character-creator.components.forms.CharacterForm.clothing.patterns.addButton')}
+                  </Button>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label>{t('modules.character-creator.components.forms.CharacterForm.clothing.patterns.predefinedLabel')}</Label>
+                  <div className="flex flex-wrap gap-2">
+                    {predefinedPatterns.map((pattern) => (
+                      <Badge 
+                        key={pattern.id} 
+                        variant="outline" 
+                        className="cursor-pointer hover:bg-accent"
+                        onClick={() => {
+                          const existingPatterns = config.clothing?.patterns || [];
+                          if (!existingPatterns.includes(pattern.name)) {
+                            updateConfig({
+                              ...config,
+                              clothing: {
+                                ...config.clothing,
+                                patterns: [...existingPatterns, pattern.name]
+                              }
+                            });
+                          }
+                        }}
+                      >
+                        {pattern.name}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

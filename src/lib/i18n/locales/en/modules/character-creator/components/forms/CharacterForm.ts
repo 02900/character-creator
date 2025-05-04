@@ -99,7 +99,25 @@ export const CharacterForm = {
     patterns: {
       label: 'Patterns',
       placeholder: 'Add a pattern',
-      addButton: 'Add'
+      addButton: 'Add',
+      predefinedLabel: 'Common Patterns',
+      options: {
+        floral: 'Floral',
+        geometric: 'Geometric',
+        runic: 'Runic',
+        celestial: 'Celestial',
+        tribal: 'Tribal',
+        draconic: 'Draconic',
+        arcane_symbols: 'Arcane Symbols',
+        elemental: 'Elemental',
+        royal_crest: 'Royal Crest',
+        divine_sigils: 'Divine Sigils',
+        demonic_markings: 'Demonic Markings',
+        nature_motifs: 'Nature Motifs',
+        astral_signs: 'Astral Signs',
+        ancient_script: 'Ancient Script',
+        guild_insignia: 'Guild Insignia'
+      }
     }
   }
 };
