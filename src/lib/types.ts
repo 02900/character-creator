@@ -63,6 +63,7 @@ export interface CompositionConfig {
   characterSizeRatio: '60%' | '70%' | '80%';
   characterPosition: 'centered' | 'slightly_above_center' | 'low_center';
   margin: number; // inches
+  characterHeight?: number; // height in meters
 }
 
 export const defaultConfig: ColoringBookIllustrationConfig = {

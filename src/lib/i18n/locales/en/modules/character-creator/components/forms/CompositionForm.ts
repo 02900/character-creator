@@ -25,5 +25,11 @@ export const CompositionForm = {
     label: 'Page Margin',
     description: 'Space between the edge of the page and the illustration',
     unit: 'inches'
+  },
+  characterHeight: {
+    label: 'Character Height',
+    description: 'Choose the height of your character in meters. The equivalent in feet and inches is shown automatically.',
+    meters: 'm',
+    default: '1.70'
   }
 };
