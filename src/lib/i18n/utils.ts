@@ -1,5 +1,9 @@
 // Utility functions for loading translations
 
+// Common translations
+import { common as enCommon } from './locales/en/common';
+import { common as esCommon } from './locales/es/common';
+
 // Form components translations
 import * as enPageSizeForm from './locales/en/modules/character-creator/components/forms/PageSizeForm';
 import * as enStyleForm from './locales/en/modules/character-creator/components/forms/StyleForm';
@@ -28,6 +32,7 @@ import { classes as esClasses } from './locales/es/modules/character-creator/dat
 export const loadTranslations = () => {
   // English translations
   const en = {
+    common: enCommon,
     modules: {
       'character-creator': {
         components: {
@@ -52,6 +57,7 @@ export const loadTranslations = () => {
 
   // Spanish translations
   const es = {
+    common: esCommon,
     modules: {
       'character-creator': {
         components: {
