@@ -75,7 +75,7 @@ export default function CharactersPage() {
   
   const handleEditClick = (name: string) => {
     // Navigate to character editor with the name as a query parameter
-    router.push(`/character-creator?character=${encodeURIComponent(name)}`);
+    router.push(`/?character=${encodeURIComponent(name)}`);
   };
   
   const formatDate = (dateString: string) => {
