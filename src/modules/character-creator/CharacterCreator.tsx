@@ -8,6 +8,7 @@ import { PageSizeForm } from "./components/forms/PageSizeForm";
 import { StyleForm } from "./components/forms/StyleForm";
 import { LineArtForm } from "./components/forms/LineArtForm";
 import { CharacterForm } from "./components/forms/CharacterForm";
+import { RaceClassForm } from "./components/forms/RaceClassForm";
 import { EffectsForm } from "./components/forms/EffectsForm";
 import { BackgroundForm } from "./components/forms/BackgroundForm";
 import { CompositionForm } from "./components/forms/CompositionForm";
@@ -57,10 +58,11 @@ export function CharacterCreator() {
     <div className="flex flex-col gap-8 md:flex-row">
       <div className="md:w-2/3">
         <Tabs defaultValue="character" className="w-full">
-          <TabsList className="grid w-full grid-cols-7">
+          <TabsList className="grid w-full grid-cols-8">
             <TabsTrigger value="page">Page</TabsTrigger>
             <TabsTrigger value="style">Style</TabsTrigger>
             <TabsTrigger value="lineart">Line Art</TabsTrigger>
+            <TabsTrigger value="raceclass">Race/Class</TabsTrigger>
             <TabsTrigger value="character">Character</TabsTrigger>
             <TabsTrigger value="effects">Effects</TabsTrigger>
             <TabsTrigger value="background">Background</TabsTrigger>
@@ -69,22 +71,35 @@ export function CharacterCreator() {
 
           <Card className="mt-4 p-4">
             <TabsContent value="page" className="mt-0">
-              <PageSizeForm config={config} updateConfig={updateConfig} />
+              <PageSizeForm 
+                config={config}
+                updateConfig={updateConfig}
+              />
             </TabsContent>
-
+            
             <TabsContent value="style" className="mt-0">
-              <StyleForm config={config} updateConfig={updateConfig} />
+              <StyleForm 
+                config={config}
+                updateConfig={updateConfig}
+              />
             </TabsContent>
-
+            
             <TabsContent value="lineart" className="mt-0">
-              <LineArtForm
+              <LineArtForm 
                 config={config.lineArt}
                 updateConfig={(lineArt) => updateConfig({ lineArt })}
               />
             </TabsContent>
-
+            
+            <TabsContent value="raceclass" className="mt-0">
+              <RaceClassForm 
+                config={config.character}
+                updateConfig={(character) => updateConfig({ character })}
+              />
+            </TabsContent>
+            
             <TabsContent value="character" className="mt-0">
-              <CharacterForm
+              <CharacterForm 
                 config={config.character}
                 updateConfig={(character) => updateConfig({ character })}
               />
