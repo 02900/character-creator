@@ -13,7 +13,7 @@ export default function CharacterCreatorPage() {
         } as React.CSSProperties
       }
     >
-      <div className="flex min-h-screen flex-col">
+      <div className="flex grow min-h-screen flex-col">
         <SiteHeader />
         <div className="container flex-1 space-y-4 p-8 pt-6">
           <Suspense>

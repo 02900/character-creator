@@ -76,6 +76,75 @@ export const PageSizeForm = {
 };
 ```
 
+## Option Lists and Collections
+
+For components that require lists of options (e.g., dropdown menus), use the following pattern:
+
+```typescript
+// src/lib/i18n/locales/en/modules/character-creator/components/forms/CharacterForm.ts
+export const CharacterForm = {
+  // Other translations...
+  clothing: {
+    type: {
+      label: 'Clothing Type',
+      placeholder: 'Select clothing type',
+      options: {
+        option_one: 'Option One Display Text',
+        option_two: 'Option Two Display Text',
+        // More options...
+      }
+    }
+  }
+};
+```
+
+### Using Option Lists with Custom Hooks
+
+For large lists of options, create a dedicated hook that maps option IDs to translated names:
+
+```typescript
+// src/modules/character-creator/data/useClothingTypes.ts
+import { useI18n } from "@/lib/i18n";
+
+export interface ClothingType {
+  id: string;
+  name: string;
+}
+
+export function useClothingTypes() {
+  const { t } = useI18n();
+
+  // Array of all option IDs
+  const clothingTypeIds = ["option_one", "option_two", "option_three"];
+
+  // Map IDs to translated names
+  const clothingTypes: ClothingType[] = clothingTypeIds.map(id => ({
+    id,
+    name: t(`modules.character-creator.components.forms.CharacterForm.clothing.type.options.${id}`)
+  }));
+
+  return { clothingTypes };
+}
+```
+
+Then in your component:
+
+```tsx
+import { useClothingTypes } from "@/modules/character-creator/data/useClothingTypes";
+
+export function MyComponent() {
+  const { clothingTypes } = useClothingTypes();
+  
+  return (
+    <Select>
+      {clothingTypes.map(item => (
+        <SelectItem key={item.id} value={item.id}>{item.name}</SelectItem>
+      ))}
+    </Select>
+  );
+}
+```
+
 ## Dynamic Data
 
 For data that has properties dynamically accessed by ID:
