@@ -2,6 +2,11 @@ export const LineArtForm = {
   title: 'Configuración de Líneas',
   description: 'Configura el estilo de líneas para tu personaje',
   lineWeight: 'Grosor de Línea',
+  weights: {
+    bold: 'Gruesa',
+    medium: 'Media',
+    fine: 'Fina'
+  },
   cleanLines: {
     label: 'Líneas Limpias',
     description: 'Asegura que las líneas sean claras y bien definidas'

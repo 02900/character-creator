@@ -57,12 +57,12 @@ export function CompositionForm({ config, updateConfig }: CompositionFormProps) 
             onValueChange={handleSizeRatioChange}
           >
             <SelectTrigger id="character-size">
-              <SelectValue placeholder="Select size ratio" />
+              <SelectValue placeholder={t('modules.character-creator.components.forms.CompositionForm.sizeRatioSelect')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="60%">60%</SelectItem>
-              <SelectItem value="70%">70%</SelectItem>
-              <SelectItem value="80%">80%</SelectItem>
+              <SelectItem value="60%">{t('modules.character-creator.components.forms.CompositionForm.characterSize.options.60%')}</SelectItem>
+              <SelectItem value="70%">{t('modules.character-creator.components.forms.CompositionForm.characterSize.options.70%')}</SelectItem>
+              <SelectItem value="80%">{t('modules.character-creator.components.forms.CompositionForm.characterSize.options.80%')}</SelectItem>
             </SelectContent>
           </Select>
           <p className="text-xs text-muted-foreground">
@@ -77,12 +77,12 @@ export function CompositionForm({ config, updateConfig }: CompositionFormProps) 
             onValueChange={handlePositionChange}
           >
             <SelectTrigger id="character-position">
-              <SelectValue placeholder="Select position" />
+              <SelectValue placeholder={t('modules.character-creator.components.forms.CompositionForm.positionSelect')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="centered">Centered</SelectItem>
-              <SelectItem value="slightly_above_center">Slightly Above Center</SelectItem>
-              <SelectItem value="low_center">Low Center</SelectItem>
+              <SelectItem value="centered">{t('modules.character-creator.components.forms.CompositionForm.characterPosition.options.centered')}</SelectItem>
+              <SelectItem value="slightly_above_center">{t('modules.character-creator.components.forms.CompositionForm.characterPosition.options.slightly_above_center')}</SelectItem>
+              <SelectItem value="low_center">{t('modules.character-creator.components.forms.CompositionForm.characterPosition.options.low_center')}</SelectItem>
             </SelectContent>
           </Select>
           <p className="text-xs text-muted-foreground">

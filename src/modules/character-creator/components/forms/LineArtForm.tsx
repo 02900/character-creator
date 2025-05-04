@@ -38,7 +38,7 @@ export function LineArtForm({ config, updateConfig }: LineArtFormProps) {
                 htmlFor="bold"
                 className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
               >
-                <span>Bold</span>
+                <span>{t('modules.character-creator.components.forms.LineArtForm.weights.bold')}</span>
               </Label>
             </div>
             
@@ -48,7 +48,7 @@ export function LineArtForm({ config, updateConfig }: LineArtFormProps) {
                 htmlFor="medium"
                 className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
               >
-                <span>Medium</span>
+                <span>{t('modules.character-creator.components.forms.LineArtForm.weights.medium')}</span>
               </Label>
             </div>
             
@@ -58,7 +58,7 @@ export function LineArtForm({ config, updateConfig }: LineArtFormProps) {
                 htmlFor="fine"
                 className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
               >
-                <span>Fine</span>
+                <span>{t('modules.character-creator.components.forms.LineArtForm.weights.fine')}</span>
               </Label>
             </div>
           </RadioGroup>

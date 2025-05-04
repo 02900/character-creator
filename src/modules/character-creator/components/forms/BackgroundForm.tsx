@@ -57,12 +57,12 @@ export function BackgroundForm({ config = {}, updateConfig }: BackgroundFormProp
             onValueChange={handleSkyChange}
           >
             <SelectTrigger id="sky">
-              <SelectValue placeholder="Select sky type" />
+              <SelectValue placeholder={t('modules.character-creator.components.forms.BackgroundForm.skySelect')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="stormy">Stormy</SelectItem>
-              <SelectItem value="clear">Clear</SelectItem>
-              <SelectItem value="twilight">Twilight</SelectItem>
+              <SelectItem value="stormy">{t('modules.character-creator.components.forms.BackgroundForm.sky.types.stormy')}</SelectItem>
+              <SelectItem value="clear">{t('modules.character-creator.components.forms.BackgroundForm.sky.types.clear')}</SelectItem>
+              <SelectItem value="twilight">{t('modules.character-creator.components.forms.BackgroundForm.sky.types.twilight')}</SelectItem>
             </SelectContent>
           </Select>
           <p className="text-xs text-muted-foreground">

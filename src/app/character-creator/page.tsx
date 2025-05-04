@@ -1,6 +1,7 @@
-import { CharacterCreator } from "@/modules/character-creator/CharacterCreator";
+import { Suspense } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import { CharacterCreator } from "@/modules/character-creator/CharacterCreator";
 
 export default function CharacterCreatorPage() {
   return (
@@ -20,7 +21,10 @@ export default function CharacterCreatorPage() {
               Character Creator
             </h2>
           </div>
-          <CharacterCreator />
+
+          <Suspense>
+            <CharacterCreator />
+          </Suspense>
         </div>
       </div>
     </SidebarProvider>

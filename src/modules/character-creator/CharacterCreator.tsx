@@ -58,22 +58,26 @@ export function CharacterCreator() {
   const [nameExists, setNameExists] = useState<boolean>(false);
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const saveInputRef = useRef<HTMLInputElement>(null);
-  
+
   // Load character from URL if provided
   useEffect(() => {
     const characterParam = searchParams.get("character");
     if (characterParam) {
       // Try to find character in saved characters
       const savedCharacters = getSavedCharacters();
-      const foundCharacter = savedCharacters.find(char => char.name === characterParam);
-      
+      const foundCharacter = savedCharacters.find(
+        (char) => char.name === characterParam
+      );
+
       if (foundCharacter) {
         // Load character data
         setConfig(foundCharacter.config);
         setCharacterName(foundCharacter.name);
         setIsEditMode(true);
         toast.success(t("characters.loaded") || "Character loaded", {
-          description: t("characters.loadedDescription") || "The character has been loaded for editing",
+          description:
+            t("characters.loadedDescription") ||
+            "The character has been loaded for editing",
         });
       }
     }
@@ -269,18 +273,17 @@ export function CharacterCreator() {
           </Card>
         </Tabs>
 
-        <div className="mt-4 flex justify-between items-center space-x-2">
+        <div className="mt-4 flex flex-wrap items-center space-x-2">
           <Button variant="outline" asChild>
             <Link href="/characters">
               <Users className="mr-2 h-4 w-4" />
               {t("common.characters.viewAll") || "View All Characters"}
             </Link>
           </Button>
-          
-          <div className="flex space-x-2">
-            <Button variant="outline" onClick={resetConfig}>
-              {t("common.reset") || "Reset"}
-            </Button>
+
+          <Button variant="outline" onClick={resetConfig}>
+            {t("common.reset") || "Reset"}
+          </Button>
 
           <Dialog open={saveDialogOpen} onOpenChange={setSaveDialogOpen}>
             <DialogTrigger asChild>
@@ -364,13 +367,10 @@ export function CharacterCreator() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          </div>
         </div>
       </div>
 
-      <div className="md:w-1/3">
-        <CharacterPreview config={config} />
-      </div>
+      <CharacterPreview config={config} />
     </div>
   );
 }

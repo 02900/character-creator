@@ -1,10 +1,22 @@
 export const EffectsForm = {
   title: 'Effects',
   description: 'Configure special effects for your character illustration',
+  typeSelect: 'Select type',
+  intensitySelect: 'Select intensity',
   magic: {
     title: 'Magic Effects',
     type: 'Magic Type',
-    intensity: 'Intensity'
+    intensity: 'Intensity',
+    types: {
+      spiral: 'Spiral',
+      orb: 'Orb',
+      flame: 'Flame',
+      aura: 'Aura'
+    },
+    intensities: {
+      subtle: 'Subtle',
+      strong: 'Strong'
+    }
   },
   spirits: {
     label: 'Spirits',
