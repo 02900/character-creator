@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label"
 import { CharacterConfig } from "@/lib/types"
 import { Button } from "@/components/ui/button"
 import { useI18n } from "@/lib/i18n"
+import { useClothingTypes } from "@/modules/character-creator/data/useClothingTypes"
+import { useCharacterExpressions } from "@/modules/character-creator/data/useCharacterExpressions"
 import { 
   Select,
   SelectContent,
@@ -24,13 +26,15 @@ interface CharacterFormProps {
 
 export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
   const { t } = useI18n();
+  const { clothingTypes } = useClothingTypes();
+  const { expressions } = useCharacterExpressions();
   const [newPattern, setNewPattern] = useState("")
 
 
-  const handleExpressionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleExpressionChange = (value: string) => {
     updateConfig({
       ...config,
-      expression: e.target.value
+      expression: value
     })
   }
 
@@ -61,12 +65,12 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
     })
   }
 
-  const handleClothingTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleClothingTypeChange = (value: string) => {
     updateConfig({
       ...config,
       clothing: {
         ...config.clothing,
-        type: e.target.value
+        type: value
       }
     })
   }
@@ -122,12 +126,21 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
         
         <div className="grid gap-2">
           <Label htmlFor="expression">{t('modules.character-creator.components.forms.CharacterForm.expression.label')}</Label>
-          <Input 
-            id="expression" 
-            placeholder={t('modules.character-creator.components.forms.CharacterForm.expression.placeholder')} 
-            value={config.expression}
-            onChange={handleExpressionChange}
-          />
+          <Select 
+            value={config.expression} 
+            onValueChange={handleExpressionChange}
+          >
+            <SelectTrigger id="expression">
+              <SelectValue placeholder={t('modules.character-creator.components.forms.CharacterForm.expression.placeholder')} />
+            </SelectTrigger>
+            <SelectContent>
+              {expressions.map((expression) => (
+                <SelectItem key={expression.id} value={expression.id}>
+                  {expression.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <p className="text-xs text-muted-foreground">
             {t('modules.character-creator.components.forms.CharacterForm.expression.description')}
           </p>
@@ -200,12 +213,21 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
           <div className="space-y-4">
             <div className="grid gap-2">
               <Label htmlFor="clothing-type">{t('modules.character-creator.components.forms.CharacterForm.clothing.type.label')}</Label>
-              <Input 
-                id="clothing-type" 
-                placeholder={t('modules.character-creator.components.forms.CharacterForm.clothing.type.placeholder')} 
-                value={config.clothing?.type || ""}
-                onChange={handleClothingTypeChange}
-              />
+              <Select 
+                value={config.clothing?.type || ""} 
+                onValueChange={handleClothingTypeChange}
+              >
+                <SelectTrigger id="clothing-type">
+                  <SelectValue placeholder={t('modules.character-creator.components.forms.CharacterForm.clothing.type.placeholder')} />
+                </SelectTrigger>
+                <SelectContent>
+                  {clothingTypes.map((clothingType) => (
+                    <SelectItem key={clothingType.id} value={clothingType.id}>
+                      {clothingType.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             
             <div className="grid gap-2">

@@ -273,7 +273,7 @@ export function CharacterCreator() {
           </Card>
         </Tabs>
 
-        <div className="mt-4 flex flex-wrap items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-2 mt-4">
           <Button variant="outline" asChild>
             <Link href="/characters">
               <Users className="mr-2 h-4 w-4" />
