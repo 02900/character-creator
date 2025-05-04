@@ -40,6 +40,25 @@ export function CompositionForm({ config, updateConfig }: CompositionFormProps) 
     })
   }
 
+  const handleHeightChange = (value: number[]) => {
+    updateConfig({
+      ...config,
+      characterHeight: value[0]
+    })
+  }
+  
+  // Convert meters to inches (1 meter = 39.3701 inches)
+  const metersToInches = (meters: number): number => {
+    return meters * 39.3701;
+  }
+  
+  // Format inches to feet and inches
+  const formatInches = (totalInches: number): string => {
+    const feet = Math.floor(totalInches / 12);
+    const inches = Math.round(totalInches % 12);
+    return `${feet}'${inches}"`;
+  }
+
   return (
     <div className="space-y-6">
       <div>
@@ -105,6 +124,27 @@ export function CompositionForm({ config, updateConfig }: CompositionFormProps) 
           />
           <p className="text-xs text-muted-foreground">
             {t('modules.character-creator.components.forms.CompositionForm.margin.description')}
+          </p>
+        </div>
+        
+        <div className="grid gap-2">
+          <div className="flex justify-between">
+            <Label htmlFor="character-height">{t('modules.character-creator.components.forms.CompositionForm.characterHeight.label')}</Label>
+            <div className="text-sm space-x-2">
+              <span>{config.characterHeight?.toFixed(2) || t('modules.character-creator.components.forms.CompositionForm.characterHeight.default')} {t('modules.character-creator.components.forms.CompositionForm.characterHeight.meters')}</span>
+              <span className="text-muted-foreground">({formatInches(metersToInches(config.characterHeight || 1.7))})</span>
+            </div>
+          </div>
+          <Slider
+            id="character-height"
+            defaultValue={[config.characterHeight || 1.7]}
+            max={2.5}
+            min={0.5}
+            step={0.01}
+            onValueChange={handleHeightChange}
+          />
+          <p className="text-xs text-muted-foreground">
+            {t('modules.character-creator.components.forms.CompositionForm.characterHeight.description')}
           </p>
         </div>
       </div>

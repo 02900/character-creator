@@ -25,5 +25,11 @@ export const CompositionForm = {
     label: 'Margen de Página',
     description: 'Espacio entre el borde de la página y la ilustración',
     unit: 'pulgadas'
+  },
+  characterHeight: {
+    label: 'Altura del Personaje',
+    description: 'Elige la altura de tu personaje en metros. El equivalente en pies y pulgadas se muestra automáticamente.',
+    meters: 'm',
+    default: '1.70'
   }
 };
