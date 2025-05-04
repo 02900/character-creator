@@ -1,3 +1,15 @@
+export interface Race {
+  id: string;
+  name: string;
+  description: string;
+}
+
+export interface Class {
+  id: string;
+  name: string;
+  description: string;
+}
+
 export interface ColoringBookIllustrationConfig {
   pageSize: '8.5x11' | 'A4' | 'Letter';
   style: 'anime' | 'chibi' | 'dark_fantasy' | 'isekai' | 'manga';
@@ -16,6 +28,8 @@ export interface LineArtConfig {
 }
 
 export interface CharacterConfig {
+  race?: string; // ID of the selected race
+  class?: string; // ID of the selected class
   role: string; // e.g. "Undead Sorcerer"
   pose: 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle';
   expression: string;
@@ -62,6 +76,8 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
     cleanLines: true
   },
   character: {
+    race: 'undead',
+    class: 'necromancer',
     role: 'Undead Sorcerer',
     pose: 'three_quarter',
     expression: 'piercing hollow eyes under hood',

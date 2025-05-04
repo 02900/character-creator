@@ -3,15 +3,28 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ColoringBookIllustrationConfig } from "@/lib/types"
 import { Button } from "@/components/ui/button"
-import { toast } from "sonner";
+import { toast } from "sonner"
+import { races, classes } from "../data/races-classes"
 
 interface CharacterPreviewProps {
   config: ColoringBookIllustrationConfig
 }
 
 export function CharacterPreview({ config }: CharacterPreviewProps) {
+  const getRaceName = (id?: string) => {
+    if (!id) return "Not selected"
+    const race = races.find(r => r.id === id)
+    return race ? race.name : "Unknown race"
+  }
+
+  const getClassName = (id?: string) => {
+    if (!id) return "Not selected"
+    const classObj = classes.find(c => c.id === id)
+    return classObj ? classObj.name : "Unknown class"
+  }
+
   const generateCharacter = () => {
-    toast("Character Generation Requested.", {
+    toast.success("Character Generation Requested", {
       description: "Your character illustration is being generated. This would connect to an AI service in a real implementation.",
     })
   }
@@ -29,7 +42,8 @@ export function CharacterPreview({ config }: CharacterPreviewProps) {
           <div className="flex h-full flex-col items-center justify-center space-y-2 text-center">
             <div className="text-sm text-muted-foreground">
               <p className="font-medium">Character Configuration</p>
-              <p className="text-xs mt-1"><strong>Role:</strong> {config.character.role}</p>
+              <p className="text-xs mt-1"><strong>Race:</strong> {getRaceName(config.character.race)}</p>
+              <p className="text-xs"><strong>Class:</strong> {getClassName(config.character.class)}</p>
               <p className="text-xs"><strong>Style:</strong> {config.style}</p>
               <p className="text-xs"><strong>Pose:</strong> {config.character.pose}</p>
               <p className="text-xs mt-4 italic">Preview would display here in a real implementation</p>

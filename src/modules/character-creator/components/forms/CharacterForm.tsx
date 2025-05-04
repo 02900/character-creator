@@ -24,12 +24,6 @@ interface CharacterFormProps {
 export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
   const [newPattern, setNewPattern] = useState("")
 
-  const handleRoleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateConfig({
-      ...config,
-      role: e.target.value
-    })
-  }
 
   const handleExpressionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateConfig({
@@ -123,18 +117,6 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
       </div>
       
       <div className="space-y-4">
-        <div className="grid gap-2">
-          <Label htmlFor="role">Character Role</Label>
-          <Input 
-            id="role" 
-            placeholder="e.g. Undead Sorcerer" 
-            value={config.role}
-            onChange={handleRoleChange}
-          />
-          <p className="text-xs text-muted-foreground">
-            Enter a descriptive role for your character
-          </p>
-        </div>
         
         <div className="grid gap-2">
           <Label htmlFor="expression">Character Expression</Label>
