@@ -3,6 +3,7 @@
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { ColoringBookIllustrationConfig } from "@/lib/types"
+import { useI18n } from "@/lib/i18n"
 
 interface PageSizeFormProps {
   config: ColoringBookIllustrationConfig
@@ -10,12 +11,14 @@ interface PageSizeFormProps {
 }
 
 export function PageSizeForm({ config, updateConfig }: PageSizeFormProps) {
+  const { t } = useI18n();
+  
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="text-lg font-medium">Page Size</h3>
+        <h3 className="text-lg font-medium">{t('modules.character-creator.components.forms.PageSizeForm.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Select the size of the coloring book page
+          {t('modules.character-creator.components.forms.PageSizeForm.description')}
         </p>
       </div>
       

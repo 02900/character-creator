@@ -3,6 +3,7 @@
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { CompositionConfig } from "@/lib/types"
+import { useI18n } from "@/lib/i18n"
 import { 
   Select,
   SelectContent,
@@ -17,6 +18,7 @@ interface CompositionFormProps {
 }
 
 export function CompositionForm({ config, updateConfig }: CompositionFormProps) {
+  const { t } = useI18n();
   const handleSizeRatioChange = (value: string) => {
     updateConfig({
       ...config,
@@ -41,15 +43,15 @@ export function CompositionForm({ config, updateConfig }: CompositionFormProps) 
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Composition</h3>
+        <h3 className="text-lg font-medium">{t('modules.character-creator.components.forms.CompositionForm.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Configure the layout and positioning of your character in the illustration
+          {t('modules.character-creator.components.forms.CompositionForm.description')}
         </p>
       </div>
       
       <div className="space-y-4">
         <div className="grid gap-2">
-          <Label htmlFor="character-size">Character Size Ratio</Label>
+          <Label htmlFor="character-size">{t('modules.character-creator.components.forms.CompositionForm.characterSize.label')}</Label>
           <Select 
             value={config.characterSizeRatio} 
             onValueChange={handleSizeRatioChange}
@@ -64,12 +66,12 @@ export function CompositionForm({ config, updateConfig }: CompositionFormProps) 
             </SelectContent>
           </Select>
           <p className="text-xs text-muted-foreground">
-            The size of the character relative to the page
+            {t('modules.character-creator.components.forms.CompositionForm.characterSize.description')}
           </p>
         </div>
         
         <div className="grid gap-2">
-          <Label htmlFor="character-position">Character Position</Label>
+          <Label htmlFor="character-position">{t('modules.character-creator.components.forms.CompositionForm.characterPosition.label')}</Label>
           <Select 
             value={config.characterPosition} 
             onValueChange={handlePositionChange}
@@ -84,14 +86,14 @@ export function CompositionForm({ config, updateConfig }: CompositionFormProps) 
             </SelectContent>
           </Select>
           <p className="text-xs text-muted-foreground">
-            The vertical positioning of the character
+            {t('modules.character-creator.components.forms.CompositionForm.characterPosition.description')}
           </p>
         </div>
         
         <div className="grid gap-2">
           <div className="flex justify-between">
-            <Label htmlFor="margin">Page Margin</Label>
-            <span className="text-sm">{config.margin} inches</span>
+            <Label htmlFor="margin">{t('modules.character-creator.components.forms.CompositionForm.margin.label')}</Label>
+            <span className="text-sm">{config.margin} {t('modules.character-creator.components.forms.CompositionForm.margin.unit')}</span>
           </div>
           <Slider
             id="margin"
@@ -102,7 +104,7 @@ export function CompositionForm({ config, updateConfig }: CompositionFormProps) 
             onValueChange={handleMarginChange}
           />
           <p className="text-xs text-muted-foreground">
-            Space between the edge of the page and the illustration
+            {t('modules.character-creator.components.forms.CompositionForm.margin.description')}
           </p>
         </div>
       </div>

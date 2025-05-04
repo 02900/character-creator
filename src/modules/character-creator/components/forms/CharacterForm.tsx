@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { CharacterConfig } from "@/lib/types"
 import { Button } from "@/components/ui/button"
+import { useI18n } from "@/lib/i18n"
 import { 
   Select,
   SelectContent,
@@ -22,6 +23,7 @@ interface CharacterFormProps {
 }
 
 export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
+  const { t } = useI18n();
   const [newPattern, setNewPattern] = useState("")
 
 
@@ -110,29 +112,29 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Character Details</h3>
+        <h3 className="text-lg font-medium">{t('modules.character-creator.components.forms.CharacterForm.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Configure the appearance and characteristics of your character
+          {t('modules.character-creator.components.forms.CharacterForm.description')}
         </p>
       </div>
       
       <div className="space-y-4">
         
         <div className="grid gap-2">
-          <Label htmlFor="expression">Character Expression</Label>
+          <Label htmlFor="expression">{t('modules.character-creator.components.forms.CharacterForm.expression.label')}</Label>
           <Input 
             id="expression" 
-            placeholder="e.g. piercing hollow eyes under hood" 
+            placeholder={t('modules.character-creator.components.forms.CharacterForm.expression.placeholder')} 
             value={config.expression}
             onChange={handleExpressionChange}
           />
           <p className="text-xs text-muted-foreground">
-            Describe the facial expression or notable facial features
+            {t('modules.character-creator.components.forms.CharacterForm.expression.description')}
           </p>
         </div>
         
         <div className="grid gap-2">
-          <Label htmlFor="pose">Character Pose</Label>
+          <Label htmlFor="pose">{t('modules.character-creator.components.forms.CharacterForm.pose')}</Label>
           <Select 
             value={config.pose} 
             onValueChange={handlePoseChange}
@@ -153,10 +155,10 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
         <Separator />
         
         <div>
-          <h4 className="text-md font-medium mb-3">Hand Positions</h4>
+          <h4 className="text-md font-medium mb-2">{t('modules.character-creator.components.forms.CharacterForm.hands.title')}</h4>
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="right-hand">Right Hand</Label>
+              <Label htmlFor="right-hand">{t('modules.character-creator.components.forms.CharacterForm.hands.right')}</Label>
               <Select 
                 value={config.hands.right} 
                 onValueChange={handleRightHandChange}
@@ -173,7 +175,7 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="left-hand">Left Hand</Label>
+              <Label htmlFor="left-hand">{t('modules.character-creator.components.forms.CharacterForm.hands.left')}</Label>
               <Select 
                 value={config.hands.left} 
                 onValueChange={handleLeftHandChange}
@@ -194,20 +196,20 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
         <Separator />
         
         <div>
-          <h4 className="text-md font-medium mb-3">Clothing</h4>
+          <h4 className="text-md font-medium mb-3">{t('modules.character-creator.components.forms.CharacterForm.clothing.title')}</h4>
           <div className="space-y-4">
             <div className="grid gap-2">
-              <Label htmlFor="clothing-type">Clothing Type</Label>
+              <Label htmlFor="clothing-type">{t('modules.character-creator.components.forms.CharacterForm.clothing.type.label')}</Label>
               <Input 
                 id="clothing-type" 
-                placeholder="e.g. tattered robe" 
+                placeholder={t('modules.character-creator.components.forms.CharacterForm.clothing.type.placeholder')} 
                 value={config.clothing?.type || ""}
                 onChange={handleClothingTypeChange}
               />
             </div>
             
             <div className="grid gap-2">
-              <Label htmlFor="clothing-flow">Clothing Flow</Label>
+              <Label htmlFor="clothing-flow">{t('modules.character-creator.components.forms.CharacterForm.clothing.flow')}</Label>
               <Select 
                 value={config.clothing?.flow || "dynamic"} 
                 onValueChange={handleClothingFlowChange}
@@ -223,7 +225,7 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
             </div>
             
             <div className="space-y-2">
-              <Label>Patterns</Label>
+              <Label>{t('modules.character-creator.components.forms.CharacterForm.clothing.patterns.label')}</Label>
               <div className="flex flex-wrap gap-2 mb-2">
                 {(config.clothing?.patterns || []).map((pattern, index) => (
                   <Badge key={index} variant="secondary" className="gap-1">
@@ -241,7 +243,7 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
               </div>
               <div className="flex gap-2">
                 <Input 
-                  placeholder="Add a pattern" 
+                  placeholder={t('modules.character-creator.components.forms.CharacterForm.clothing.patterns.placeholder')} 
                   value={newPattern}
                   onChange={(e) => setNewPattern(e.target.value)}
                   onKeyDown={(e) => {
@@ -252,7 +254,7 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
                   }}
                 />
                 <Button onClick={addPattern} size="sm" type="button">
-                  Add
+                  {t('modules.character-creator.components.forms.CharacterForm.clothing.patterns.addButton')}
                 </Button>
               </div>
             </div>

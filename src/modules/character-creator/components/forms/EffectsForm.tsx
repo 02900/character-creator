@@ -1,9 +1,9 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { EffectsConfig } from "@/lib/types";
+import { useI18n } from "@/lib/i18n";
 import {
   Select,
   SelectContent,
@@ -19,6 +19,7 @@ interface EffectsFormProps {
 }
 
 export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
+  const { t } = useI18n();
   const handleMagicTypeChange = (value: string) => {
     updateConfig({
       ...config,
@@ -63,17 +64,17 @@ export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Effects</h3>
+        <h3 className="text-lg font-medium">{t('modules.character-creator.components.forms.EffectsForm.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Configure special effects for your character illustration
+          {t('modules.character-creator.components.forms.EffectsForm.description')}
         </p>
       </div>
 
       <div>
-        <h4 className="text-md font-medium mb-3">Magic Effects</h4>
+        <h4 className="text-md font-medium mb-3">{t('modules.character-creator.components.forms.EffectsForm.magic.title')}</h4>
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="magic-type">Magic Type</Label>
+            <Label htmlFor="magic-type">{t('modules.character-creator.components.forms.EffectsForm.magic.type')}</Label>
             <Select
               value={config.magic?.type || "spiral"}
               onValueChange={handleMagicTypeChange}
@@ -91,7 +92,7 @@ export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="magic-intensity">Intensity</Label>
+            <Label htmlFor="magic-intensity">{t('modules.character-creator.components.forms.EffectsForm.magic.intensity')}</Label>
             <Select
               value={config.magic?.intensity || "strong"}
               onValueChange={handleMagicIntensityChange}
@@ -113,9 +114,9 @@ export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
       <div className="space-y-4">
         <div className="flex items-center justify-between rounded-lg border p-4">
           <div className="space-y-0.5">
-            <Label htmlFor="spirits">Spirits</Label>
+            <Label htmlFor="spirits">{t('modules.character-creator.components.forms.EffectsForm.spirits.label')}</Label>
             <div className="text-xs text-muted-foreground">
-              Add ethereal spirits around the character
+              {t('modules.character-creator.components.forms.EffectsForm.spirits.description')}
             </div>
           </div>
           <Switch
@@ -127,9 +128,9 @@ export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
 
         <div className="flex items-center justify-between rounded-lg border p-4">
           <div className="space-y-0.5">
-            <Label htmlFor="mist">Mist</Label>
+            <Label htmlFor="mist">{t('modules.character-creator.components.forms.EffectsForm.mist.label')}</Label>
             <div className="text-xs text-muted-foreground">
-              Add mystical mist around the character's feet
+              {t('modules.character-creator.components.forms.EffectsForm.mist.description')}
             </div>
           </div>
           <Switch
@@ -141,9 +142,9 @@ export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
 
         <div className="flex items-center justify-between rounded-lg border p-4">
           <div className="space-y-0.5">
-            <Label htmlFor="groundCracks">Ground Cracks</Label>
+            <Label htmlFor="groundCracks">{t('modules.character-creator.components.forms.EffectsForm.groundCracks.label')}</Label>
             <div className="text-xs text-muted-foreground">
-              Add cracked ground beneath the character
+              {t('modules.character-creator.components.forms.EffectsForm.groundCracks.description')}
             </div>
           </div>
           <Switch

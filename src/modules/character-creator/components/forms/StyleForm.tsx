@@ -3,6 +3,7 @@
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { ColoringBookIllustrationConfig } from "@/lib/types"
+import { useI18n } from "@/lib/i18n"
 
 interface StyleFormProps {
   config: ColoringBookIllustrationConfig
@@ -10,12 +11,14 @@ interface StyleFormProps {
 }
 
 export function StyleForm({ config, updateConfig }: StyleFormProps) {
+  const { t } = useI18n();
+  
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="text-lg font-medium">Illustration Style</h3>
+        <h3 className="text-lg font-medium">{t('modules.character-creator.components.forms.StyleForm.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Choose the art style for your character
+          {t('modules.character-creator.components.forms.StyleForm.description')}
         </p>
       </div>
       
