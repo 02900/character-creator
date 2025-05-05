@@ -11,7 +11,6 @@ export interface Class {
 }
 
 export interface ColoringBookIllustrationConfig {
-  pageSize: '8.5x11' | 'A4' | 'Letter';
   artStyle: 'anime' | 'manga' | 'comic' | 'toon' | 'webtoon';
   genres: string[];
   lineArt: LineArtConfig;
@@ -89,6 +88,7 @@ export interface BackgroundConfig {
 }
 
 export interface CompositionConfig {
+  pageSize: '8.5x11' | 'A4' | 'Letter';
   characterSizeRatio: '60%' | '70%' | '80%';
   characterPosition: 'centered' | 'slightly_above_center' | 'low_center';
   margin: number; // inches
@@ -106,7 +106,6 @@ export interface WeaponsConfig {
 }
 
 export const defaultConfig: ColoringBookIllustrationConfig = {
-  pageSize: '8.5x11',
   artStyle: 'anime',
   genres: ['isekai', 'dark_fantasy'],
   weapons: {
@@ -117,7 +116,7 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
     style: 'magical'
   },
   lineArt: {
-    lineWeight: 'bold',
+    lineWeight: 'fine',
     shading: false,
     grayscale: false,
     cleanLines: true
@@ -154,6 +153,7 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
     timeOfDay: 'dusk',
   },
   composition: {
+    pageSize: '8.5x11',
     characterSizeRatio: '70%',
     characterPosition: 'slightly_above_center',
     margin: 1.0

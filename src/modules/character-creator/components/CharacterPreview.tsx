@@ -78,7 +78,7 @@ export function CharacterPreview({ config }: CharacterPreviewProps) {
             <div className="text-sm font-medium">Configuration Summary</div>
             <div className="mt-2 text-xs space-y-1">
               <p>
-                <strong>Page Size:</strong> {config.pageSize}
+                <strong>Page Size:</strong> {config.composition.pageSize}
               </p>
               <p>
                 <strong>Line Weight:</strong> {config.lineArt.lineWeight}
