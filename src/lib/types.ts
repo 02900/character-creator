@@ -12,7 +12,8 @@ export interface Class {
 
 export interface ColoringBookIllustrationConfig {
   pageSize: '8.5x11' | 'A4' | 'Letter';
-  style: 'anime' | 'chibi' | 'dark_fantasy' | 'isekai' | 'manga';
+  artStyle: 'anime' | 'manga' | 'comic' | 'toon' | 'webtoon';
+  genres: string[];
   lineArt: LineArtConfig;
   character: CharacterConfig;
   effects?: EffectsConfig;
@@ -68,7 +69,8 @@ export interface CompositionConfig {
 
 export const defaultConfig: ColoringBookIllustrationConfig = {
   pageSize: '8.5x11',
-  style: 'anime',
+  artStyle: 'anime',
+  genres: ['isekai', 'dark_fantasy'],
   lineArt: {
     lineWeight: 'bold',
     shading: false,
