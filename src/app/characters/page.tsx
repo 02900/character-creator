@@ -149,7 +149,11 @@ export default function CharactersPage() {
                   </p>
                   <p className="mt-2">
                     <span className="font-medium">{t("common.characters.style") || "Style"}:</span>{" "}
-                    {character.config.style}
+                    {character.config.artStyle}
+                  </p>
+                  <p className="mt-2">
+                    <span className="font-medium">{t("common.characters.genres") || "Genres"}:</span>{" "}
+                    {character.config.genres.join(", ")}
                   </p>
                 </div>
               </CardContent>
