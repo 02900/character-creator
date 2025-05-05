@@ -17,6 +17,7 @@ export interface ColoringBookIllustrationConfig {
   lineArt: LineArtConfig;
   character: CharacterConfig;
   effects?: EffectsConfig;
+  weapons?: WeaponsConfig;
   background?: BackgroundConfig;
   composition: CompositionConfig;
 }
@@ -92,10 +93,27 @@ export interface CompositionConfig {
   characterHeight?: number; // height in meters
 }
 
+export interface WeaponsConfig {
+  category: "one_handed" | "two_handed" | "dual_wield" | "none";
+  mainHand?: string;
+  offHand?: string;
+  twoHanded?: string;
+  shield?: boolean;
+  enchanted?: boolean;
+  style?: "plain" | "ornate" | "magical" | "runic" | "ancient";
+}
+
 export const defaultConfig: ColoringBookIllustrationConfig = {
   pageSize: '8.5x11',
   artStyle: 'anime',
   genres: ['isekai', 'dark_fantasy'],
+  weapons: {
+    category: 'one_handed',
+    mainHand: 'staff',
+    shield: false,
+    enchanted: true,
+    style: 'magical'
+  },
   lineArt: {
     lineWeight: 'bold',
     shading: false,
