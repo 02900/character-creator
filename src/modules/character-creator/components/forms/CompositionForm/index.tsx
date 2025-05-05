@@ -7,6 +7,8 @@ import { CharacterPositionSelector } from "./components/CharacterPositionSelecto
 import { MarginSlider } from "./components/MarginSlider"
 import { CharacterHeightSlider } from "./components/CharacterHeightSlider"
 import { PageSizeSelector } from "./components/PageSizeSelector"
+import { LineWeightSelector } from "./components/LineWeightSelector"
+import { LineEffectsSection } from "./components/LineEffectsSection"
 import { useCompositionFormInit } from "./hooks/useCompositionFormInit"
 
 interface CompositionFormProps {
@@ -23,13 +25,19 @@ export function CompositionForm({
   return (
     <div className="space-y-6">
       <FormHeader />
-      <div className="space-y-4">
-        <CharacterSizeSelector />
-        <CharacterPositionSelector />
-        <MarginSlider />
-        <CharacterHeightSlider />
+      <div className="space-y-6">
+        <div className="space-y-4">
+          <LineWeightSelector />
+          <LineEffectsSection />
+        </div>
+        <div className="space-y-4">
+          <CharacterSizeSelector />
+          <CharacterPositionSelector />
+          <MarginSlider />
+          <CharacterHeightSlider />
+        </div>
+        <PageSizeSelector />
       </div>
-      <PageSizeSelector />
     </div>
   )
 }
