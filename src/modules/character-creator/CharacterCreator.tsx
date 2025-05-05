@@ -13,6 +13,7 @@ import { RaceClassForm } from "./components/forms/RaceClassForm";
 import { EffectsForm } from "./components/forms/EffectsForm";
 import { BackgroundForm } from "./components/forms/BackgroundForm";
 import { CompositionForm } from "./components/forms/CompositionForm";
+import { WeaponsForm } from "./components/forms/WeaponsForm";
 import { ColoringBookIllustrationConfig, defaultConfig } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -215,6 +216,7 @@ export function CharacterCreator() {
             <TabsTrigger value="lineart">Line Art</TabsTrigger>
             <TabsTrigger value="raceclass">Race/Class</TabsTrigger>
             <TabsTrigger value="character">Character</TabsTrigger>
+            <TabsTrigger value="weapons">Weapons</TabsTrigger>
             <TabsTrigger value="effects">Effects</TabsTrigger>
             <TabsTrigger value="background">Background</TabsTrigger>
             <TabsTrigger value="composition">Composition</TabsTrigger>
@@ -247,6 +249,13 @@ export function CharacterCreator() {
               <CharacterForm
                 config={config.character}
                 updateConfig={(character) => updateConfig({ character })}
+              />
+            </TabsContent>
+
+            <TabsContent value="weapons" className="mt-0">
+              <WeaponsForm
+                config={config.weapons}
+                updateConfig={(weapons) => updateConfig({ weapons })}
               />
             </TabsContent>
 

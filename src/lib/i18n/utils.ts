@@ -13,6 +13,7 @@ import * as enCharacterForm from './locales/en/modules/character-creator/compone
 import * as enEffectsForm from './locales/en/modules/character-creator/components/forms/EffectsForm';
 import * as enBackgroundForm from './locales/en/modules/character-creator/components/forms/BackgroundForm';
 import * as enCompositionForm from './locales/en/modules/character-creator/components/forms/CompositionForm';
+import * as enWeaponsForm from './locales/en/modules/character-creator/components/forms/WeaponsForm';
 
 import * as esPageSizeForm from './locales/es/modules/character-creator/components/forms/PageSizeForm';
 import * as esStyleForm from './locales/es/modules/character-creator/components/forms/StyleForm';
@@ -22,6 +23,7 @@ import * as esCharacterForm from './locales/es/modules/character-creator/compone
 import * as esEffectsForm from './locales/es/modules/character-creator/components/forms/EffectsForm';
 import * as esBackgroundForm from './locales/es/modules/character-creator/components/forms/BackgroundForm';
 import * as esCompositionForm from './locales/es/modules/character-creator/components/forms/CompositionForm';
+import * as esWeaponsForm from './locales/es/modules/character-creator/components/forms/WeaponsForm';
 
 // Data translations
 import { races as enRaces } from './locales/en/modules/character-creator/data/races';
@@ -44,7 +46,8 @@ export const loadTranslations = () => {
             CharacterForm: enCharacterForm.CharacterForm,
             EffectsForm: enEffectsForm.EffectsForm,
             BackgroundForm: enBackgroundForm.BackgroundForm,
-            CompositionForm: enCompositionForm.CompositionForm
+            CompositionForm: enCompositionForm.CompositionForm,
+            WeaponsForm: enWeaponsForm.WeaponsForm
           },
           data: {
             races: enRaces,
@@ -69,7 +72,8 @@ export const loadTranslations = () => {
             CharacterForm: esCharacterForm.CharacterForm,
             EffectsForm: esEffectsForm.EffectsForm,
             BackgroundForm: esBackgroundForm.BackgroundForm,
-            CompositionForm: esCompositionForm.CompositionForm
+            CompositionForm: esCompositionForm.CompositionForm,
+            WeaponsForm: esWeaponsForm.WeaponsForm
           },
           data: {
             races: esRaces,
