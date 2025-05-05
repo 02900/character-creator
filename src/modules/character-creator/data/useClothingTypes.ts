@@ -43,7 +43,17 @@ export function useClothingTypes() {
     "beastmaster_tribal_outfit",
     "holy_priest_ceremonial_robes",
     "steampunk_artifice_gear",
-    "heroic_legend_outfit"
+    "heroic_legend_outfit",
+    "arcane_battle_mage_attire",
+    "celestial_guardian_armor",
+    "void_walker_cloak",
+    "fae_enchanted_garments",
+    "vampire_noble_attire",
+    "elemental_shaman_regalia",
+    "witch_hunter_coat",
+    "astral_traveler_suit",
+    "royal_assassin_vestments",
+    "battle_oracle_robes"
   ];
 
   // Map the IDs to ClothingType objects with translated names

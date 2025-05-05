@@ -16,15 +16,16 @@ import { Input } from "@/components/ui/input";
 import { useMagicTypes } from "@/modules/character-creator/data/useMagicTypes";
 import { useMagicIntensities } from "@/modules/character-creator/data/useMagicIntensities";
 
-interface EffectsFormProps {
+interface SpellsFormProps {
   config?: EffectsConfig;
   updateConfig: (config: EffectsConfig) => void;
 }
 
-export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
+export function SpellsForm({ config = {}, updateConfig }: SpellsFormProps) {
   const { t } = useI18n();
   const { magicTypes } = useMagicTypes();
   const { magicIntensities } = useMagicIntensities();
+  
   const handleToggleMagic = (checked: boolean) => {
     if (checked && !config.magic) {
       updateConfig({
@@ -36,9 +37,9 @@ export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
         },
       });
     } else if (!checked) {
-      // Use object destructuring to remove magic property
+      // Use object destructuring to remove all magic-related properties
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { magic, ...restConfig } = config;
+      const { magic, spirits, mist, groundCracks, ...restConfig } = config;
       updateConfig(restConfig);
     }
   };
@@ -90,24 +91,45 @@ export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
   };
 
   const handleToggleSpirits = (checked: boolean) => {
-    updateConfig({
-      ...config,
-      spirits: checked,
-    });
+    if (!checked) {
+      // Remove the spirits property when disabled
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { spirits, ...restConfig } = config;
+      updateConfig(restConfig);
+    } else {
+      updateConfig({
+        ...config,
+        spirits: checked,
+      });
+    }
   };
 
   const handleToggleMist = (checked: boolean) => {
-    updateConfig({
-      ...config,
-      mist: checked,
-    });
+    if (!checked) {
+      // Remove the mist property when disabled
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { mist, ...restConfig } = config;
+      updateConfig(restConfig);
+    } else {
+      updateConfig({
+        ...config,
+        mist: checked,
+      });
+    }
   };
 
   const handleToggleGroundCracks = (checked: boolean) => {
-    updateConfig({
-      ...config,
-      groundCracks: checked,
-    });
+    if (!checked) {
+      // Remove the groundCracks property when disabled
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { groundCracks, ...restConfig } = config;
+      updateConfig(restConfig);
+    } else {
+      updateConfig({
+        ...config,
+        groundCracks: checked,
+      });
+    }
   };
 
   return (
@@ -153,7 +175,11 @@ export function EffectsForm({ config = {}, updateConfig }: EffectsFormProps) {
                 onValueChange={handleMagicTypeChange}
               >
                 <SelectTrigger id="magic-type">
-                  <SelectValue placeholder={t("modules.character-creator.components.forms.EffectsForm.magic.typeSelect")} />
+                  <SelectValue
+                    placeholder={t(
+                      "modules.character-creator.components.forms.EffectsForm.magic.typeSelect"
+                    )}
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   {magicTypes.map((type) => (

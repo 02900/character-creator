@@ -9,7 +9,7 @@ import { StyleForm } from "./components/forms/StyleForm";
 import { LineArtForm } from "./components/forms/LineArtForm";
 import { CharacterForm } from "./components/forms/CharacterForm";
 import { RaceClassForm } from "./components/forms/RaceClassForm";
-import { EffectsForm } from "./components/forms/EffectsForm";
+import { SpellsForm } from "./components/forms/SpellsForm";
 import { BackgroundForm } from "./components/forms/BackgroundForm";
 import { CompositionForm } from "./components/forms/CompositionForm";
 import { WeaponsForm } from "./components/forms/WeaponsForm";
@@ -206,8 +206,8 @@ export function CharacterCreator() {
   };
 
   return (
-    <div className="flex md:flex-row gap-2">
-      <div className="flex flex-col">
+    <div className="flex flex-col md:flex-row gap-2">
+      <div className="flex flex-col md:max-w-2/3">
         <Tabs defaultValue="style" className="w-full">
           <TabsList className="grid w-full grid-cols-8">
             <TabsTrigger value="style">Style</TabsTrigger>
@@ -215,7 +215,7 @@ export function CharacterCreator() {
             <TabsTrigger value="raceclass">Race/Class</TabsTrigger>
             <TabsTrigger value="character">Character</TabsTrigger>
             <TabsTrigger value="weapons">Weapons</TabsTrigger>
-            <TabsTrigger value="effects">Effects</TabsTrigger>
+            <TabsTrigger value="spells">Spells</TabsTrigger>
             <TabsTrigger value="background">Background</TabsTrigger>
             <TabsTrigger value="composition">Composition</TabsTrigger>
           </TabsList>
@@ -255,8 +255,8 @@ export function CharacterCreator() {
               />
             </TabsContent>
 
-            <TabsContent value="effects" className="mt-0">
-              <EffectsForm
+            <TabsContent value="spells" className="mt-0">
+              <SpellsForm
                 config={config.effects}
                 updateConfig={(effects) => updateConfig({ effects })}
               />

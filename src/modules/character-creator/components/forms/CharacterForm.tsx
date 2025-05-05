@@ -19,6 +19,7 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { X } from "lucide-react"
+import { Slider } from "@/components/ui/slider"
 
 interface CharacterFormProps {
   config: CharacterConfig
@@ -46,13 +47,20 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
       pose: value as 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle'
     })
   }
+  
+  const handleLevelChange = (value: number[]) => {
+    updateConfig({
+      ...config,
+      level: value[0]
+    })
+  }
 
   const handleRightHandChange = (value: string) => {
     updateConfig({
       ...config,
       hands: {
         ...config.hands,
-        right: value as 'clawed_upward' | 'open_palm' | 'two_fingers_cast'
+        right: value as 'none' | 'clawed_upward' | 'open_palm' | 'two_fingers_cast' | 'fist' | 'pointing' | 'weapon_grip' | 'magic_circle'
       }
     })
   }
@@ -62,7 +70,7 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
       ...config,
       hands: {
         ...config.hands,
-        left: value as 'open_loose' | 'spirit_guiding' | 'half_fist'
+        left: value as 'none' | 'open_loose' | 'spirit_guiding' | 'half_fist' | 'shield_hold' | 'clenched_fist' | 'holding_orb' | 'spell_casting'
       }
     })
   }
@@ -82,7 +90,7 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
       ...config,
       clothing: {
         ...config.clothing,
-        flow: value as 'dynamic' | 'still'
+        flow: value as 'none' | 'dynamic' | 'still'
       }
     })
   }
@@ -125,6 +133,24 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
       </div>
       
       <div className="space-y-4">
+        
+        <div className="grid gap-2 mb-4">
+          <div className="flex justify-between">
+            <Label htmlFor="character-level">{t('modules.character-creator.components.forms.CharacterForm.level.label')}</Label>
+            <span className="text-sm font-medium">{t('modules.character-creator.components.forms.CharacterForm.level.value', { level: String(config.level || 50) })}</span>
+          </div>
+          <Slider
+            id="character-level"
+            defaultValue={[config.level || 50]}
+            min={1}
+            max={100}
+            step={1}
+            onValueChange={handleLevelChange}
+          />
+          <p className="text-xs text-muted-foreground">
+            {t('modules.character-creator.components.forms.CharacterForm.level.description')}
+          </p>
+        </div>
         
         <div className="grid gap-2">
           <Label htmlFor="expression">{t('modules.character-creator.components.forms.CharacterForm.expression.label')}</Label>
@@ -182,9 +208,14 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
                   <SelectValue placeholder={t('modules.character-creator.components.forms.CharacterForm.handPositionSelect')} />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="none">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.none')}</SelectItem>
                   <SelectItem value="clawed_upward">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.clawed_upward')}</SelectItem>
                   <SelectItem value="open_palm">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.open_palm')}</SelectItem>
                   <SelectItem value="two_fingers_cast">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.two_fingers_cast')}</SelectItem>
+                  <SelectItem value="fist">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.fist')}</SelectItem>
+                  <SelectItem value="pointing">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.pointing')}</SelectItem>
+                  <SelectItem value="weapon_grip">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.weapon_grip')}</SelectItem>
+                  <SelectItem value="magic_circle">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.magic_circle')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -199,9 +230,14 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
                   <SelectValue placeholder={t('modules.character-creator.components.forms.CharacterForm.handPositionSelect')} />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="none">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.none')}</SelectItem>
                   <SelectItem value="open_loose">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.open_loose')}</SelectItem>
                   <SelectItem value="spirit_guiding">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.spirit_guiding')}</SelectItem>
                   <SelectItem value="half_fist">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.half_fist')}</SelectItem>
+                  <SelectItem value="shield_hold">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.shield_hold')}</SelectItem>
+                  <SelectItem value="clenched_fist">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.clenched_fist')}</SelectItem>
+                  <SelectItem value="holding_orb">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.holding_orb')}</SelectItem>
+                  <SelectItem value="spell_casting">{t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.spell_casting')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -242,6 +278,7 @@ export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
                   <SelectValue placeholder={t('modules.character-creator.components.forms.CharacterForm.flowStyleSelect')} />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="none">{t('modules.character-creator.components.forms.CharacterForm.clothing.flowTypes.none')}</SelectItem>
                   <SelectItem value="dynamic">{t('modules.character-creator.components.forms.CharacterForm.clothing.flowTypes.dynamic')}</SelectItem>
                   <SelectItem value="still">{t('modules.character-creator.components.forms.CharacterForm.clothing.flowTypes.still')}</SelectItem>
                 </SelectContent>
