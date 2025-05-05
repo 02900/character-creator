@@ -6,13 +6,13 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
-import { useStyleFormStore } from "../store/useStyleFormStore"
+import { useStyleForm } from "../../../../hooks/useStyleForm"
 import { useGenres } from "../hooks/useGenres"
 
 export function GenreManagement() {
   const { t } = useI18n()
   const { genres: predefinedGenres } = useGenres()
-  const { config, newGenre, setNewGenre, addGenre, removeGenre, toggleGenre } = useStyleFormStore()
+  const { config, newGenre, setNewGenre, addGenre, removeGenre, toggleGenre } = useStyleForm()
   
   const handleNewGenreKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {

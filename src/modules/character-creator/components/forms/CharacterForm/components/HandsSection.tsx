@@ -3,11 +3,30 @@
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
-import { useCharacterFormStore } from "../store/useCharacterFormStore"
+import { useCharacterForm } from "../../../../hooks/useCharacterForm"
 
 export function HandsSection() {
   const { t } = useI18n()
-  const { config, updateRightHand, updateLeftHand } = useCharacterFormStore()
+  const { config, updateConfig } = useCharacterForm()
+  
+  // Helper functions to update hand poses
+  const updateRightHand = (pose: string) => {
+    updateConfig({
+      hands: {
+        ...config.hands,
+        right: pose as 'none' | 'fist' | 'clawed_upward' | 'open_palm' | 'two_fingers_cast' | 'pointing' | 'weapon_grip' | 'magic_circle'
+      }
+    })
+  }
+  
+  const updateLeftHand = (pose: string) => {
+    updateConfig({
+      hands: {
+        ...config.hands,
+        left: pose as 'none' | 'open_loose' | 'spirit_guiding' | 'half_fist' | 'shield_hold' | 'clenched_fist' | 'holding_orb' | 'spell_casting'
+      }
+    })
+  }
 
   return (
     <div>

@@ -3,11 +3,16 @@
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { useI18n } from "@/lib/i18n"
-import { useCharacterFormStore } from "../store/useCharacterFormStore"
+import { useCharacterForm } from "../../../../hooks/useCharacterForm"
 
 export function LevelSlider() {
   const { t } = useI18n()
-  const { config, updateLevel } = useCharacterFormStore()
+  const { config, updateConfig } = useCharacterForm()
+  
+  // Helper function to update level
+  const updateLevel = (values: number[]) => {
+    updateConfig({ level: values[0] })
+  }
 
   return (
     <div className="grid gap-2 mb-4">

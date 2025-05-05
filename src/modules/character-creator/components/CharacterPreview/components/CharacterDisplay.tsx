@@ -1,10 +1,10 @@
 "use client";
 
 import { useRacesClasses } from "@/modules/character-creator/hooks/useRacesClasses";
-import { useCharacterPreviewStore } from "../store/useCharacterPreviewStore";
+import { useCharacterPreview } from "../../../hooks/useCharacterPreview";
 
 export function CharacterDisplay() {
-  const { config } = useCharacterPreviewStore();
+  const { config } = useCharacterPreview();
   const { races, classes } = useRacesClasses();
 
   const getRaceName = (id?: string) => {

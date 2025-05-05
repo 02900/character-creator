@@ -9,13 +9,27 @@ import { Switch } from "@/components/ui/switch"
 import { useI18n } from "@/lib/i18n"
 import { useRacesClasses } from "@/modules/character-creator/hooks/useRacesClasses"
 import { X } from "lucide-react"
-import { useRaceClassFormStore } from "../store/useRaceClassFormStore"
+import { useRaceClassForm } from "../../../../hooks/useRaceClassForm"
 import { useState } from "react"
 
 export function ClassEffectsSection() {
   const { t } = useI18n()
   const { classes } = useRacesClasses()
-  const { selectedClass, effectsConfig, toggleClassEffect } = useRaceClassFormStore()
+  const { config, effectsConfig, updateEffectsConfig } = useRaceClassForm()
+  
+  // Helper function to toggle class effects
+  const toggleClassEffect = (effect: string, value: string | boolean | string[]) => {
+    const currentClassEffects = effectsConfig.classEffects || {}
+    
+    updateEffectsConfig({
+      classEffects: {
+        ...currentClassEffects,
+        [effect]: value
+      }
+    })
+  }
+  
+  const selectedClass = config.class
   const [newEquipment, setNewEquipment] = useState("")
 
   const className = classes.find((c) => c.id === selectedClass)?.name || ""

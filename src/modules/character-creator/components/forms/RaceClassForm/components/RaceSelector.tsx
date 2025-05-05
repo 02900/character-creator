@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
@@ -6,13 +5,21 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
 import { useRacesClasses } from "@/modules/character-creator/hooks/useRacesClasses"
-import { useRaceClassFormStore } from "../store/useRaceClassFormStore"
+import { useRaceClassForm } from "../../../../hooks/useRaceClassForm"
+import { useState } from "react"
 import { useEffect } from "react"
 
 export function RaceSelector() {
   const { t } = useI18n()
   const { races } = useRacesClasses()
-  const { selectedRace, raceDescription, updateRace, setRaceDescription } = useRaceClassFormStore()
+  const { config, updateConfig } = useRaceClassForm()
+  const [raceDescription, setRaceDescription] = useState<string>("")
+  
+  const selectedRace = config.race
+  
+  const updateRace = (value: string) => {
+    updateConfig({ race: value })
+  }
 
   useEffect(() => {
     if (selectedRace) {
@@ -21,7 +28,7 @@ export function RaceSelector() {
     } else {
       setRaceDescription("")
     }
-  }, [selectedRace, setRaceDescription])
+  }, [selectedRace, races])
 
   return (
     <div className="space-y-3">

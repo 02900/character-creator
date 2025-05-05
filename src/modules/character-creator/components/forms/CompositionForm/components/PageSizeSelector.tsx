@@ -3,11 +3,18 @@
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useI18n } from "@/lib/i18n"
-import { useCompositionFormStore } from "../store/useCompositionFormStore"
+import { useCompositionForm } from "../../../../hooks/useCompositionForm"
 
 export function PageSizeSelector() {
   const { t } = useI18n()
-  const { config, updatePageSize } = useCompositionFormStore()
+  const { config, updateConfig } = useCompositionForm()
+  
+  // Helper function to update page size
+  const updatePageSize = (value: string) => {
+    updateConfig({
+      pageSize: value as '8.5x11' | 'A4' | 'Letter'
+    })
+  }
 
   return (
     <div className="grid gap-2">

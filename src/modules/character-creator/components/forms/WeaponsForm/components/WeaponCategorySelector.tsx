@@ -3,30 +3,33 @@
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useI18n } from "@/lib/i18n";
-import { useWeaponsFormStore } from "../store/useWeaponsFormStore";
+import { useWeaponsForm } from "../../../../hooks/useWeaponsForm";
+import { WeaponsConfig } from "@/lib/types";
 import { useWeaponTypes } from "../hooks/useWeaponTypes";
 
 export function WeaponCategorySelector() {
   const { t } = useI18n();
   const { oneHandedWeapons, twoHandedWeapons } = useWeaponTypes();
-  const { config, updateCategory, updateMainHand, updateOffHand, updateTwoHanded } = useWeaponsFormStore();
+  const { config, updateConfig } = useWeaponsForm();
 
   const handleCategoryChange = (value: string) => {
-    updateCategory(value);
+    const updates: Partial<WeaponsConfig> = { category: value as 'none' | 'one_handed' | 'two_handed' | 'dual_wield' };
     
     // Set default weapons when changing category
     if (value === "one_handed" && !config.mainHand) {
-      updateMainHand(oneHandedWeapons[0]?.id);
+      updates.mainHand = oneHandedWeapons[0]?.id;
     } else if (value === "two_handed" && !config.twoHanded) {
-      updateTwoHanded(twoHandedWeapons[0]?.id);
+      updates.twoHanded = twoHandedWeapons[0]?.id;
     } else if (value === "dual_wield") {
       if (!config.mainHand) {
-        updateMainHand(oneHandedWeapons[0]?.id);
+        updates.mainHand = oneHandedWeapons[0]?.id;
       }
       if (!config.offHand) {
-        updateOffHand(oneHandedWeapons[0]?.id);
+        updates.offHand = oneHandedWeapons[0]?.id;
       }
     }
+    
+    updateConfig(updates);
   };
 
   return (

@@ -1,9 +1,9 @@
 "use client";
 
-import { useCharacterPreviewStore } from "../store/useCharacterPreviewStore";
+import { useCharacterPreview } from "../../../hooks/useCharacterPreview";
 
 export function ConfigSummary() {
-  const { config } = useCharacterPreviewStore();
+  const { config } = useCharacterPreview();
 
   return (
     <div className="rounded-md bg-muted p-3">

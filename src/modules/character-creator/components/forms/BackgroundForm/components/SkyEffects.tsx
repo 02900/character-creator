@@ -3,11 +3,20 @@
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { useI18n } from "@/lib/i18n"
-import { useBackgroundFormStore } from "../store/useBackgroundFormStore"
+import { useBackgroundForm } from "../../../../hooks/useBackgroundForm"
 
 export function SkyEffects() {
   const { t } = useI18n()
-  const { config, toggleClouds, toggleLightning } = useBackgroundFormStore()
+  const { config, updateConfig } = useBackgroundForm()
+  
+  // Helper functions to toggle sky effects
+  const toggleClouds = (checked: boolean) => {
+    updateConfig({ clouds: checked })
+  }
+  
+  const toggleLightning = (checked: boolean) => {
+    updateConfig({ lightning: checked })
+  }
 
   return (
     <div className="space-y-4">

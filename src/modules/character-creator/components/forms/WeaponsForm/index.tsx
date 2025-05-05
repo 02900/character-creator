@@ -6,16 +6,11 @@ import { OneHandedWeaponSelector } from "./components/OneHandedWeaponSelector";
 import { TwoHandedWeaponSelector } from "./components/TwoHandedWeaponSelector";
 import { DualWieldWeaponSelector } from "./components/DualWieldWeaponSelector";
 import { WeaponSettings } from "./components/WeaponSettings";
-import { useWeaponsFormInit } from "./hooks/useWeaponsFormInit";
-import { WeaponsConfig } from "@/lib/types";
+import { useWeaponsForm } from "../../../hooks/useWeaponsForm";
 
-interface WeaponsFormProps {
-  config?: WeaponsConfig;
-  updateConfig: (config: WeaponsConfig) => void;
-}
-
-export function WeaponsForm({ config = { category: "none" }, updateConfig }: WeaponsFormProps) {
-  useWeaponsFormInit({ config, updateConfig });
+export function WeaponsForm() {
+  // Now using the centralized store through our hook
+  useWeaponsForm();
 
   return (
     <div className="space-y-6">

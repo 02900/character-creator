@@ -1,19 +1,16 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { ColoringBookIllustrationConfig } from "@/lib/types";
+// Direct hook import removed - child components will import directly as needed
 import { PreviewHeader } from "./components/PreviewHeader";
 import { CharacterDisplay } from "./components/CharacterDisplay";
 import { ConfigSummary } from "./components/ConfigSummary";
 import { GenerateButton } from "./components/GenerateButton";
-import { useCharacterPreviewInit } from "./hooks/useCharacterPreviewInit";
+// No longer need initialization hook with centralized store
 
-interface CharacterPreviewProps {
-  config: ColoringBookIllustrationConfig;
-}
-
-export function CharacterPreview({ config }: CharacterPreviewProps) {
-  useCharacterPreviewInit({ config });
+export function CharacterPreview() {
+  // We no longer need to extract or pass config as the child components
+  // will access the store directly through their own hooks
 
   return (
     <Card className="h-full">

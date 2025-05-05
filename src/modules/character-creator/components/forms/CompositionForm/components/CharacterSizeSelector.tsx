@@ -3,11 +3,18 @@
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
-import { useCompositionFormStore } from "../store/useCompositionFormStore"
+import { useCompositionForm } from "../../../../hooks/useCompositionForm"
 
 export function CharacterSizeSelector() {
   const { t } = useI18n()
-  const { config, updateSizeRatio } = useCompositionFormStore()
+  const { config, updateConfig } = useCompositionForm()
+  
+  // Helper function to update size ratio
+  const updateSizeRatio = (value: string) => {
+    updateConfig({
+      characterSizeRatio: value as '60%' | '70%' | '80%'
+    })
+  }
 
   return (
     <div className="grid gap-2">

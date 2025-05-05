@@ -3,11 +3,18 @@
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { useI18n } from "@/lib/i18n"
-import { useCompositionFormStore } from "../store/useCompositionFormStore"
+import { useCompositionForm } from "../../../../hooks/useCompositionForm"
 
 export function MarginSlider() {
   const { t } = useI18n()
-  const { config, updateMargin } = useCompositionFormStore()
+  const { config, updateConfig } = useCompositionForm()
+  
+  // Helper function to update margin
+  const updateMargin = (value: number[]) => {
+    updateConfig({
+      margin: value[0]
+    })
+  }
 
   return (
     <div className="grid gap-2">

@@ -11,12 +11,22 @@ import {
 } from "@/components/ui/select";
 import { useI18n } from "@/lib/i18n";
 import { useWeaponTypes } from "../hooks/useWeaponTypes";
-import { useWeaponsFormStore } from "../store/useWeaponsFormStore";
+import { useWeaponsForm } from "../../../../hooks/useWeaponsForm";
 
 export function OneHandedWeaponSelector() {
   const { t } = useI18n();
   const { oneHandedWeapons } = useWeaponTypes();
-  const { config, updateMainHand, toggleShield } = useWeaponsFormStore();
+  const { config, updateConfig } = useWeaponsForm();
+  
+  // Helper function to toggle shield
+  const toggleShield = (checked: boolean) => {
+    updateConfig({ shield: checked });
+  };
+  
+  // Helper function to update main hand
+  const updateMainHand = (value: string) => {
+    updateConfig({ mainHand: value });
+  };
 
   // Only render when category is one_handed
   if (config.category !== "one_handed") return null;

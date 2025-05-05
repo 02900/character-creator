@@ -3,11 +3,15 @@
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { useI18n } from "@/lib/i18n"
-import { useCompositionFormStore } from "../store/useCompositionFormStore"
+import { useCompositionForm } from "../../../../hooks/useCompositionForm"
 
 export function LineEffectsSection() {
   const { t } = useI18n()
-  const { config, toggleCleanLines } = useCompositionFormStore()
+  const { lineArtConfig, updateLineArtConfig } = useCompositionForm()
+  
+  const toggleCleanLines = (checked: boolean) => {
+    updateLineArtConfig({ cleanLines: checked })
+  }
 
   return (
     <div className="space-y-4">
@@ -20,7 +24,7 @@ export function LineEffectsSection() {
         </div>
         <Switch
           id="cleanLines"
-          checked={config.lineArt?.cleanLines || false}
+          checked={lineArtConfig?.cleanLines || false}
           onCheckedChange={toggleCleanLines}
         />
       </div>

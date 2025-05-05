@@ -1,12 +1,31 @@
 "use client"
 
 import { useI18n } from "@/lib/i18n"
-import { useSpellsFormStore } from "../store/useSpellsFormStore"
+import { useSpellsForm } from "../../../../hooks/useSpellsForm"
 import { EffectToggle } from "./EffectToggle"
 
 export function AdditionalEffects() {
   const { t } = useI18n()
-  const { config, toggleSpirits, toggleMist, toggleGroundCracks } = useSpellsFormStore()
+  const { config, updateConfig } = useSpellsForm()
+  
+  // Helper functions for additional effects
+  const toggleSpirits = () => {
+    updateConfig({
+      spirits: !config.spirits
+    })
+  }
+  
+  const toggleMist = () => {
+    updateConfig({
+      mist: !config.mist
+    })
+  }
+  
+  const toggleGroundCracks = () => {
+    updateConfig({
+      groundCracks: !config.groundCracks
+    })
+  }
 
   return (
     <div className="space-y-4">

@@ -9,13 +9,22 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useI18n } from "@/lib/i18n";
-import { useWeaponsFormStore } from "../store/useWeaponsFormStore";
+import { useWeaponsForm } from "../../../../hooks/useWeaponsForm";
 import { useWeaponTypes } from "../hooks/useWeaponTypes";
 
 export function DualWieldWeaponSelector() {
   const { t } = useI18n();
   const { oneHandedWeapons } = useWeaponTypes();
-  const { config, updateMainHand, updateOffHand } = useWeaponsFormStore();
+  const { config, updateConfig } = useWeaponsForm();
+  
+  // Helper functions to update main and off hand weapons
+  const updateMainHand = (value: string) => {
+    updateConfig({ mainHand: value });
+  };
+  
+  const updateOffHand = (value: string) => {
+    updateConfig({ offHand: value });
+  };
 
   // Only render when category is dual_wield
   if (config.category !== "dual_wield") return null;
