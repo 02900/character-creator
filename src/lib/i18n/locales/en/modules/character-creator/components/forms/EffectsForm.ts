@@ -1,33 +1,47 @@
 export const EffectsForm = {
   title: 'Effects',
   description: 'Configure special effects for your character illustration',
-  typeSelect: 'Select type',
-  intensitySelect: 'Select intensity',
+  enableMagic: {
+    label: 'Enable Magic Effects',
+    description: 'Add magical effects to your character'
+  },
   magic: {
     title: 'Magic Effects',
     type: 'Magic Type',
     intensity: 'Intensity',
+    color: 'Magic Color',
+    colorPlaceholder: 'Color hex code',
+    typeSelect: 'Select magic type',
+    intensitySelect: 'Select intensity',
     types: {
-      spiral: 'Spiral',
-      orb: 'Orb',
-      flame: 'Flame',
-      aura: 'Aura'
+      spiral: 'Spiral Magic',
+      orb: 'Magical Orb',
+      flame: 'Magical Flame',
+      aura: 'Aura Glow',
+      lightning: 'Lightning Effect',
+      water: 'Water Magic',
+      earth: 'Earth Magic',
+      wind: 'Wind Magic',
+      shadow: 'Shadow Magic',
+      light: 'Light Magic'
     },
     intensities: {
       subtle: 'Subtle',
-      strong: 'Strong'
+      moderate: 'Moderate',
+      strong: 'Strong',
+      overwhelming: 'Overwhelming'
     }
   },
   spirits: {
-    label: 'Spirits',
-    description: 'Add ethereal spirits around the character'
+    label: 'Magical Spirits',
+    description: 'Small magical spirits or wisps floating around the character'
   },
   mist: {
-    label: 'Mist',
-    description: 'Add mystical mist around the character\'s feet'
+    label: 'Magical Mist',
+    description: 'Mysterious magical mist swirling around the character\'s feet'
   },
   groundCracks: {
     label: 'Ground Cracks',
-    description: 'Add cracked ground beneath the character'
+    description: 'Magical energy causing cracks in the ground beneath the character'
   }
 };

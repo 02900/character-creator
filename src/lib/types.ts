@@ -46,18 +46,43 @@ export interface CharacterConfig {
 
 export interface EffectsConfig {
   magic?: {
-    type: 'spiral' | 'orb' | 'flame' | 'aura';
-    intensity: 'subtle' | 'strong';
+    type: 'spiral' | 'orb' | 'flame' | 'aura' | 'lightning' | 'water' | 'earth' | 'wind' | 'shadow' | 'light';
+    intensity: 'subtle' | 'moderate' | 'strong' | 'overwhelming';
+    color?: string;
   };
   spirits?: boolean;
   mist?: boolean;
   groundCracks?: boolean;
+  raceEffects?: {
+    glow?: boolean;
+    aura?: 'none' | 'divine' | 'demonic' | 'nature' | 'arcane' | 'elemental';
+    wings?: boolean;
+    horns?: boolean;
+    tail?: boolean;
+    scales?: boolean;
+    elementalAffinity?: 'fire' | 'water' | 'earth' | 'air' | 'light' | 'darkness' | 'none';
+  };
+  classEffects?: {
+    weapons?: 'glowing' | 'runic' | 'elemental' | 'spectral' | 'normal';
+    spellbook?: boolean;
+    familiar?: boolean;
+    specialAbility?: string;
+    equipment?: string[];
+  };
+  environmentEffects?: {
+    weather?: 'clear' | 'rain' | 'storm' | 'snow' | 'fog';
+    timeOfDay?: 'dawn' | 'day' | 'dusk' | 'night';
+    particles?: 'none' | 'dust' | 'leaves' | 'embers' | 'snowflakes' | 'sparks';
+  };
 }
 
 export interface BackgroundConfig {
   clouds?: boolean;
   lightning?: boolean;
-  sky?: 'stormy' | 'clear' | 'twilight';
+  // Environment effects (moved from EffectsConfig)
+  weatherEffect?: 'clear' | 'rain' | 'storm' | 'snow' | 'fog';
+  timeOfDay?: 'dawn' | 'day' | 'dusk' | 'night';
+  particles?: 'none' | 'dust' | 'leaves' | 'embers' | 'snowflakes' | 'sparks';
 }
 
 export interface CompositionConfig {
@@ -104,7 +129,6 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
   background: {
     clouds: true,
     lightning: true,
-    sky: 'stormy'
   },
   composition: {
     characterSizeRatio: '70%',
