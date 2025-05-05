@@ -6,7 +6,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { CharacterPreview } from "./components/CharacterPreview";
 import { StyleForm } from "./components/forms/StyleForm";
-import { LineArtForm } from "./components/forms/LineArtForm";
 import { CharacterForm } from "./components/forms/CharacterForm";
 import { RaceClassForm } from "./components/forms/RaceClassForm";
 import { SpellsForm } from "./components/forms/SpellsForm";
@@ -211,7 +210,6 @@ export function CharacterCreator() {
         <Tabs defaultValue="style" className="w-full">
           <TabsList className="grid w-full grid-cols-8">
             <TabsTrigger value="style">Style</TabsTrigger>
-            <TabsTrigger value="lineart">Line Art</TabsTrigger>
             <TabsTrigger value="raceclass">Race/Class</TabsTrigger>
             <TabsTrigger value="character">Character</TabsTrigger>
             <TabsTrigger value="weapons">Weapons</TabsTrigger>
@@ -223,13 +221,6 @@ export function CharacterCreator() {
           <Card className="mt-4 p-4">
             <TabsContent value="style" className="mt-0">
               <StyleForm config={config} updateConfig={updateConfig} />
-            </TabsContent>
-
-            <TabsContent value="lineart" className="mt-0">
-              <LineArtForm
-                config={config.lineArt}
-                updateConfig={(lineArt) => updateConfig({ lineArt })}
-              />
             </TabsContent>
 
             <TabsContent value="raceclass" className="mt-0">
@@ -277,7 +268,7 @@ export function CharacterCreator() {
                     ...config.composition,
                     ...composition,
                   };
-                  updateConfig({ composition: updatedComposition })
+                  updateConfig({ composition: updatedComposition });
                 }}
               />
             </TabsContent>
