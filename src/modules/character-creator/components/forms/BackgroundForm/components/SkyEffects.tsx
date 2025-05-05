@@ -1,0 +1,43 @@
+"use client"
+
+import { Label } from "@/components/ui/label"
+import { Switch } from "@/components/ui/switch"
+import { useI18n } from "@/lib/i18n"
+import { useBackgroundFormStore } from "../store/useBackgroundFormStore"
+
+export function SkyEffects() {
+  const { t } = useI18n()
+  const { config, toggleClouds, toggleLightning } = useBackgroundFormStore()
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between rounded-lg border p-4">
+        <div className="space-y-0.5">
+          <Label htmlFor="clouds">{t('modules.character-creator.components.forms.BackgroundForm.clouds.label')}</Label>
+          <div className="text-xs text-muted-foreground">
+            {t('modules.character-creator.components.forms.BackgroundForm.clouds.description')}
+          </div>
+        </div>
+        <Switch
+          id="clouds"
+          checked={config.clouds || false}
+          onCheckedChange={toggleClouds}
+        />
+      </div>
+      
+      <div className="flex items-center justify-between rounded-lg border p-4">
+        <div className="space-y-0.5">
+          <Label htmlFor="lightning">{t('modules.character-creator.components.forms.BackgroundForm.lightning.label')}</Label>
+          <div className="text-xs text-muted-foreground">
+            {t('modules.character-creator.components.forms.BackgroundForm.lightning.description')}
+          </div>
+        </div>
+        <Switch
+          id="lightning"
+          checked={config.lightning || false}
+          onCheckedChange={toggleLightning}
+        />
+      </div>
+    </div>
+  )
+}
