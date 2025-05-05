@@ -93,11 +93,6 @@ export function CharacterPreview({ config }: CharacterPreviewProps) {
                   {config.effects.magic.intensity})
                 </p>
               )}
-              {config.background?.sky && (
-                <p>
-                  <strong>Sky:</strong> {config.background.sky}
-                </p>
-              )}
             </div>
           </div>
 

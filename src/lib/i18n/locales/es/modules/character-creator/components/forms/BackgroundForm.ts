@@ -18,5 +18,41 @@ export const BackgroundForm = {
   lightning: {
     label: 'Relámpagos',
     description: 'Añade efectos de relámpago al fondo'
+  },
+  // Environment effects section (moved from EffectsForm)
+  environment: {
+    title: 'Efectos Ambientales',
+    weatherEffect: {
+      label: 'Efecto Climático',
+      types: {
+        clear: 'Despejado',
+        rain: 'Lluvia',
+        storm: 'Tormenta',
+        snow: 'Nieve',
+        fog: 'Niebla'
+      }
+    },
+    timeOfDay: {
+      label: 'Hora del Día',
+      types: {
+        dawn: 'Amanecer',
+        day: 'Día',
+        dusk: 'Atardecer',
+        night: 'Noche'
+      }
+    },
+    particles: {
+      label: 'Efecto de Partículas',
+      placeholder: 'Selecciona un efecto de partículas',
+      description: 'Partículas ambientales que mejoran la atmósfera del entorno',
+      types: {
+        none: 'Ninguno',
+        dust: 'Partículas de Polvo',
+        leaves: 'Hojas Cayendo',
+        embers: 'Brasas Flotantes',
+        snowflakes: 'Copos de Nieve',
+        sparks: 'Destellos Mágicos'
+      }
+    }
   }
 };
