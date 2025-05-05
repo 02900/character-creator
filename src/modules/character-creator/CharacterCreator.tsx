@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { CharacterPreview } from "./components/CharacterPreview";
-import { PageSizeForm } from "./components/forms/PageSizeForm";
 import { StyleForm } from "./components/forms/StyleForm";
 import { LineArtForm } from "./components/forms/LineArtForm";
 import { CharacterForm } from "./components/forms/CharacterForm";
@@ -209,9 +208,8 @@ export function CharacterCreator() {
   return (
     <div className="flex md:flex-row gap-2">
       <div className="flex flex-col">
-        <Tabs defaultValue="character" className="w-full">
+        <Tabs defaultValue="style" className="w-full">
           <TabsList className="grid w-full grid-cols-8">
-            <TabsTrigger value="page">Page</TabsTrigger>
             <TabsTrigger value="style">Style</TabsTrigger>
             <TabsTrigger value="lineart">Line Art</TabsTrigger>
             <TabsTrigger value="raceclass">Race/Class</TabsTrigger>
@@ -223,10 +221,6 @@ export function CharacterCreator() {
           </TabsList>
 
           <Card className="mt-4 p-4">
-            <TabsContent value="page" className="mt-0">
-              <PageSizeForm config={config} updateConfig={updateConfig} />
-            </TabsContent>
-
             <TabsContent value="style" className="mt-0">
               <StyleForm config={config} updateConfig={updateConfig} />
             </TabsContent>
@@ -242,6 +236,8 @@ export function CharacterCreator() {
               <RaceClassForm
                 config={config.character}
                 updateConfig={(character) => updateConfig({ character })}
+                effectsConfig={config.effects}
+                updateEffectsConfig={(effects) => updateConfig({ effects })}
               />
             </TabsContent>
 
@@ -276,7 +272,13 @@ export function CharacterCreator() {
             <TabsContent value="composition" className="mt-0">
               <CompositionForm
                 config={config.composition}
-                updateConfig={(composition) => updateConfig({ composition })}
+                updateConfig={(composition) => {
+                  const updatedComposition = {
+                    ...config.composition,
+                    ...composition,
+                  };
+                  updateConfig({ composition: updatedComposition })
+                }}
               />
             </TabsContent>
           </Card>
