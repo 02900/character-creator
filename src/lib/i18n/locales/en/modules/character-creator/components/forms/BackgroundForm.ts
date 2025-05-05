@@ -2,6 +2,24 @@ export const BackgroundForm = {
   title: 'Background',
   description: 'Configure the background elements for your character illustration',
   skySelect: 'Select sky type',
+  scenery: {
+    label: 'Environment Scenery',
+    description: 'Choose the type of environment for your character background',
+    placeholder: 'Select scenery type',
+    types: {
+      none: 'None',
+      forest: 'Forest',
+      castle: 'Castle',
+      mountain: 'Mountain',
+      desert: 'Desert',
+      cave: 'Cave',
+      village: 'Village',
+      temple: 'Temple',
+      beach: 'Beach',
+      dungeon: 'Dungeon',
+      city: 'City'
+    }
+  },
   sky: {
     label: 'Sky Type',
     description: 'The appearance of the sky in the background',

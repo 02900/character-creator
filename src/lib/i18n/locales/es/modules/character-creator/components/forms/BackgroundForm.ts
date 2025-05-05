@@ -2,6 +2,24 @@ export const BackgroundForm = {
   title: 'Fondo',
   description: 'Configura los elementos de fondo para la ilustración de tu personaje',
   skySelect: 'Seleccionar tipo de cielo',
+  scenery: {
+    label: 'Escenario del Entorno',
+    description: 'Elige el tipo de entorno para el fondo de tu personaje',
+    placeholder: 'Seleccionar tipo de escenario',
+    types: {
+      none: 'Ninguno',
+      forest: 'Bosque',
+      castle: 'Castillo',
+      mountain: 'Montaña',
+      desert: 'Desierto',
+      cave: 'Cueva',
+      village: 'Aldea',
+      temple: 'Templo',
+      beach: 'Playa',
+      dungeon: 'Mazmorra',
+      city: 'Ciudad'
+    }
+  },
   sky: {
     label: 'Tipo de Cielo',
     description: 'La apariencia del cielo en el fondo',
