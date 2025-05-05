@@ -1,6 +1,11 @@
 export const CharacterForm = {
   title: 'Detalles del Personaje',
   description: 'Configura la apariencia y características de tu personaje',
+  level: {
+    label: 'Nivel del Personaje',
+    value: 'Nivel {{level}}',
+    description: 'Establece el nivel de poder de tu personaje desde novato (1) hasta legendario (100)'
+  },
   expression: {
     label: 'Expresión del Personaje',
     placeholder: 'Selecciona una expresión',
@@ -41,15 +46,24 @@ export const CharacterForm = {
     right: 'Mano Derecha',
     left: 'Mano Izquierda',
     positions: {
+      none: 'Ninguna (Oculta)',
       right: {
         clawed_upward: 'Garras hacia arriba',
         open_palm: 'Palma abierta',
-        two_fingers_cast: 'Lanzamiento con dos dedos'
+        two_fingers_cast: 'Lanzamiento con dos dedos',
+        fist: 'Puño cerrado',
+        pointing: 'Señalando',
+        weapon_grip: 'Empuñando arma',
+        magic_circle: 'Formando círculo mágico'
       },
       left: {
         open_loose: 'Abierta y relajada',
         spirit_guiding: 'Guiando espíritus',
-        half_fist: 'Medio puño'
+        half_fist: 'Medio puño',
+        shield_hold: 'Sosteniendo escudo',
+        clenched_fist: 'Puño apretado',
+        holding_orb: 'Sosteniendo orbe mágico',
+        spell_casting: 'Lanzando hechizo'
       }
     }
   },
@@ -88,11 +102,22 @@ export const CharacterForm = {
         beastmaster_tribal_outfit: 'Traje Tribal de Domador de Bestias',
         holy_priest_ceremonial_robes: 'Túnicas Ceremoniales de Sacerdote Sagrado',
         steampunk_artifice_gear: 'Equipo de Artífice Steampunk',
-        heroic_legend_outfit: 'Atuendo de Leyenda Heroica'
+        heroic_legend_outfit: 'Atuendo de Leyenda Heroica',
+        arcane_battle_mage_attire: 'Atuendo de Mago de Batalla Arcano',
+        celestial_guardian_armor: 'Armadura de Guardián Celestial',
+        void_walker_cloak: 'Capa de Caminante del Vacío',
+        fae_enchanted_garments: 'Vestimenta Encantada de Hadas',
+        vampire_noble_attire: 'Vestimenta Noble Vampírica',
+        elemental_shaman_regalia: 'Regalia de Chamán Elemental',
+        witch_hunter_coat: 'Abrigo de Cazador de Brujas',
+        astral_traveler_suit: 'Traje de Viajero Astral',
+        royal_assassin_vestments: 'Vestimenta de Asesino Real',
+        battle_oracle_robes: 'Túnicas de Oráculo de Batalla'
       }
     },
     flow: 'Flujo de la Vestimenta',
     flowTypes: {
+      none: 'Ninguno',
       dynamic: 'Dinámico',
       still: 'Estático'
     },

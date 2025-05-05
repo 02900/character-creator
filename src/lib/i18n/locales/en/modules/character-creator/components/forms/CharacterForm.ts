@@ -1,6 +1,11 @@
 export const CharacterForm = {
   title: 'Character Details',
   description: 'Configure the appearance and characteristics of your character',
+  level: {
+    label: 'Character Level',
+    value: 'Level {{level}}',
+    description: 'Set the power level of your character from novice (1) to legendary (100)'
+  },
   expression: {
     label: 'Character Expression',
     placeholder: 'Select an expression',
@@ -41,15 +46,24 @@ export const CharacterForm = {
     right: 'Right Hand',
     left: 'Left Hand',
     positions: {
+      none: 'None (Hidden)',
       right: {
         clawed_upward: 'Clawed Upward',
         open_palm: 'Open Palm',
-        two_fingers_cast: 'Two Fingers Cast'
+        two_fingers_cast: 'Two Fingers Casting Gesture',
+        fist: 'Clenched Fist',
+        pointing: 'Pointing',
+        weapon_grip: 'Weapon Grip',
+        magic_circle: 'Magic Circle Formation'
       },
       left: {
         open_loose: 'Open Loose',
-        spirit_guiding: 'Spirit Guiding',
-        half_fist: 'Half Fist'
+        spirit_guiding: 'Spirit Guiding Gesture',
+        half_fist: 'Half-Fist',
+        shield_hold: 'Shield Holding',
+        clenched_fist: 'Clenched Fist',
+        holding_orb: 'Holding Magical Orb',
+        spell_casting: 'Spell Casting Motion'
       }
     }
   },
@@ -88,11 +102,22 @@ export const CharacterForm = {
         beastmaster_tribal_outfit: 'Beastmaster Tribal Outfit',
         holy_priest_ceremonial_robes: 'Holy Priest Ceremonial Robes',
         steampunk_artifice_gear: 'Steampunk Artifice Gear',
-        heroic_legend_outfit: 'Heroic Legend Outfit'
+        heroic_legend_outfit: 'Heroic Legend Outfit',
+        arcane_battle_mage_attire: 'Arcane Battle Mage Attire',
+        celestial_guardian_armor: 'Celestial Guardian Armor',
+        void_walker_cloak: 'Void Walker Cloak',
+        fae_enchanted_garments: 'Fae Enchanted Garments',
+        vampire_noble_attire: 'Vampire Noble Attire',
+        elemental_shaman_regalia: 'Elemental Shaman Regalia',
+        witch_hunter_coat: 'Witch Hunter Coat',
+        astral_traveler_suit: 'Astral Traveler Suit',
+        royal_assassin_vestments: 'Royal Assassin Vestments',
+        battle_oracle_robes: 'Battle Oracle Robes'
       }
     },
     flow: 'Clothing Flow',
     flowTypes: {
+      none: 'None',
       dynamic: 'Dynamic',
       still: 'Still'
     },

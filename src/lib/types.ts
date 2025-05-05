@@ -31,16 +31,17 @@ export interface LineArtConfig {
 export interface CharacterConfig {
   race?: string; // ID of the selected race
   class?: string; // ID of the selected class
+  level?: number; // Character level (1-100)
   pose: 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle';
   expression: string;
   hands: {
-    right: 'clawed_upward' | 'open_palm' | 'two_fingers_cast';
-    left: 'open_loose' | 'spirit_guiding' | 'half_fist';
+    right: 'none' | 'clawed_upward' | 'open_palm' | 'two_fingers_cast' | 'fist' | 'pointing' | 'weapon_grip' | 'magic_circle';
+    left: 'none' | 'open_loose' | 'spirit_guiding' | 'half_fist' | 'shield_hold' | 'clenched_fist' | 'holding_orb' | 'spell_casting';
   };
   clothing?: {
     type?: string; // e.g. "tattered robe"
     patterns?: string[]; // e.g. ["skeletal", "runes"]
-    flow?: 'dynamic' | 'still';
+    flow?: 'none' | 'dynamic' | 'still';
   };
 }
 
@@ -124,6 +125,7 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
   character: {
     race: 'undead',
     class: 'necromancer',
+    level: 50,
     pose: 'three_quarter',
     expression: 'piercing hollow eyes under hood',
     hands: {
