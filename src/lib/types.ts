@@ -139,13 +139,10 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
     }
   },
   effects: {
-    magic: {
-      type: 'spiral',
-      intensity: 'strong'
-    },
-    spirits: true,
-    mist: true,
-    groundCracks: true
+    magic: undefined,
+    spirits: false,
+    mist: false,
+    groundCracks: false
   },
   background: {
     clouds: true,
@@ -157,6 +154,7 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
   composition: {
     pageSize: '8.5x11',
     characterSizeRatio: '70%',
+    characterHeight: 1.8,
     characterPosition: 'slightly_above_center',
     margin: 1.0
   }
