@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useI18n } from "@/lib/i18n";
 import { useWeaponsFormStore } from "../store/useWeaponsFormStore";
-import { useWeaponTypes } from "@/modules/character-creator/data/useWeaponTypes";
+import { useWeaponTypes } from "../hooks/useWeaponTypes";
 
 export function WeaponCategorySelector() {
   const { t } = useI18n();

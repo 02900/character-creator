@@ -3,8 +3,8 @@
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
-import { useCharacterExpressions } from "@/modules/character-creator/data/useCharacterExpressions"
 import { useCharacterFormStore } from "../store/useCharacterFormStore"
+import { useCharacterExpressions } from "../hooks/useCharacterExpressions"
 
 export function ExpressionSelector() {
   const { t } = useI18n()

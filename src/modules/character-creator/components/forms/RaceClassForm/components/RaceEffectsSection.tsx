@@ -6,7 +6,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 import { useI18n } from "@/lib/i18n"
-import { useRacesClasses } from "@/modules/character-creator/data/useRacesClasses"
+import { useRacesClasses } from "@/modules/character-creator/hooks/useRacesClasses"
 import { useRaceClassFormStore } from "../store/useRaceClassFormStore"
 
 export function RaceEffectsSection() {

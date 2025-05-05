@@ -3,8 +3,8 @@
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
-import { useClothingTypes } from "@/modules/character-creator/data/useClothingTypes"
 import { useCharacterFormStore } from "../store/useCharacterFormStore"
+import { useClothingTypes } from "../hooks/useClothingTypes"
 
 export function ClothingTypeSelector() {
   const { t } = useI18n()

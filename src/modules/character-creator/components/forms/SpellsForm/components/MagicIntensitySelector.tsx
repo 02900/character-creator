@@ -3,8 +3,8 @@
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
-import { useMagicIntensities } from "@/modules/character-creator/data/useMagicIntensities"
 import { useSpellsFormStore } from "../store/useSpellsFormStore"
+import { useMagicIntensities } from "../hooks/useMagicIntensities"
 
 export function MagicIntensitySelector() {
   const { t } = useI18n()

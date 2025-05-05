@@ -3,8 +3,8 @@
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
-import { useMagicTypes } from "@/modules/character-creator/data/useMagicTypes"
 import { useSpellsFormStore } from "../store/useSpellsFormStore"
+import { useMagicTypes } from "../hooks/useMagicTypes"
 
 export function MagicTypeSelector() {
   const { t } = useI18n()

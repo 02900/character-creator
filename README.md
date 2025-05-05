@@ -28,12 +28,52 @@ This Character Creator application provides a dashboard for managing character i
 src/
 ├── app/               # Pages and routes using App Router
 │   ├── dashboard/     # Dashboard page with character data
+│   ├── characters/    # Character management pages
 │   └── page.tsx       # Homepage
 ├── components/        # Reusable UI components
+│   ├── ui/            # Base UI components (buttons, inputs, etc.)
+│   └── shared/        # Shared composite components
 ├── hooks/             # Custom React hooks
 ├── lib/               # Utility functions and libraries
+│   ├── i18n/          # Internationalization
+│   ├── types.ts       # TypeScript type definitions
+│   └── utils/         # Helper functions
 └── modules/           # Feature modules
+    └── character-creator/  # Character creator module
+        ├── components/     # Module-specific components
+        │   ├── CharacterPreview/  # Modular component structure
+        │   │   ├── components/    # Sub-components
+        │   │   ├── hooks/         # Component-specific hooks
+        │   │   ├── store/         # Zustand state management
+        │   │   └── index.tsx      # Main component file
+        │   │
+        │   └── forms/             # Form components
+        │       ├── CharacterForm/ # Character form with modular structure
+        │       │   ├── components/ # Form sections as components
+        │       │   ├── hooks/      # Form initialization hooks
+        │       │   ├── store/      # Form state management
+        │       │   └── index.tsx   # Main form component
+        │       │
+        │       ├── CompositionForm/ # Similar modular structure
+        │       ├── RaceClassForm/   # Similar modular structure
+        │       ├── SpellsForm/      # Similar modular structure
+        │       ├── StyleForm/       # Similar modular structure
+        │       ├── WeaponsForm/     # Similar modular structure
+        │       └── BackgroundForm/  # Similar modular structure
+        │
+        ├── data/           # Module-specific data and API
+        ├── utils/          # Module-specific utilities
+        └── CharacterCreator.tsx  # Main module component
 ```
+
+### Component Organization
+
+Components follow a modular pattern with clear separation of concerns:
+
+- **Main Component** (`index.tsx`): Simple orchestration of sub-components
+- **Components Folder**: Individual UI sections of the form or feature
+- **Store**: Zustand state management for the component
+- **Hooks**: Custom hooks for initializing state and handling side effects
 
 ## Features
 
