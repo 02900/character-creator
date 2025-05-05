@@ -3,11 +3,16 @@
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useI18n } from "@/lib/i18n"
-import { useBackgroundFormStore } from "../store/useBackgroundFormStore"
+import { useBackgroundForm } from "../../../../hooks/useBackgroundForm"
 
 export function WeatherEffectSelector() {
   const { t } = useI18n()
-  const { config, updateWeatherEffect } = useBackgroundFormStore()
+  const { config, updateConfig } = useBackgroundForm()
+  
+  // Helper function to update weather effect
+  const updateWeatherEffect = (value: string) => {
+    updateConfig({ weatherEffect: value as 'clear' | 'rain' | 'storm' | 'snow' | 'fog' })
+  }
 
   return (
     <div className="mb-4">

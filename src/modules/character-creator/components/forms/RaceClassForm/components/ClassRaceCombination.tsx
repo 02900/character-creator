@@ -2,12 +2,13 @@
 
 import { useI18n } from "@/lib/i18n"
 import { useRacesClasses } from "@/modules/character-creator/hooks/useRacesClasses"
-import { useRaceClassFormStore } from "../store/useRaceClassFormStore"
+import { useRaceClassForm } from "../../../../hooks/useRaceClassForm"
 
 export function ClassRaceCombination() {
   const { t } = useI18n()
   const { races, classes } = useRacesClasses()
-  const { selectedRace, selectedClass } = useRaceClassFormStore()
+  const { config } = useRaceClassForm()
+  const { race: selectedRace, class: selectedClass } = config
 
   if (!selectedRace || !selectedClass) return null
 

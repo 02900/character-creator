@@ -3,11 +3,30 @@
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { useI18n } from "@/lib/i18n"
-import { useSpellsFormStore } from "../store/useSpellsFormStore"
+import { useSpellsForm } from "../../../../hooks/useSpellsForm"
 
 export function MagicToggle() {
   const { t } = useI18n()
-  const { config, toggleMagic } = useSpellsFormStore()
+  const { config, updateConfig } = useSpellsForm()
+  
+  // Helper function to toggle magic
+  const toggleMagic = () => {
+    // If magic already exists, remove it to disable
+    // If it doesn't exist, create it with default values to enable
+    if (config.magic) {
+      updateConfig({
+        magic: undefined
+      })
+    } else {
+      updateConfig({
+        magic: {
+          type: 'orb',
+          intensity: 'moderate',
+          color: '#3b82f6'
+        }
+      })
+    }
+  }
 
   return (
     <div className="flex items-center justify-between rounded-lg border p-4 mb-6">

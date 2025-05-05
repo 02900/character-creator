@@ -40,18 +40,27 @@ src/
 │   └── utils/         # Helper functions
 └── modules/           # Feature modules
     └── character-creator/  # Character creator module
+        ├── store/            # Centralized Zustand store
+        │   └── useCharacterCreatorStore.ts  # Single source of truth for state
+        │
+        ├── hooks/            # Form-specific hooks
+        │   ├── useStyleForm.ts       # Style form state access
+        │   ├── useRaceClassForm.ts   # Race/class form state access
+        │   ├── useCharacterForm.ts   # Character form state access
+        │   ├── useWeaponsForm.ts     # Weapons form state access
+        │   ├── useSpellsForm.ts      # Spells form state access
+        │   ├── useBackgroundForm.ts  # Background form state access
+        │   ├── useCompositionForm.ts # Composition form state access
+        │   └── useCharacterPreview.ts # Character preview state access
+        │
         ├── components/     # Module-specific components
         │   ├── CharacterPreview/  # Modular component structure
         │   │   ├── components/    # Sub-components
-        │   │   ├── hooks/         # Component-specific hooks
-        │   │   ├── store/         # Zustand state management
         │   │   └── index.tsx      # Main component file
         │   │
         │   └── forms/             # Form components
         │       ├── CharacterForm/ # Character form with modular structure
         │       │   ├── components/ # Form sections as components
-        │       │   ├── hooks/      # Form initialization hooks
-        │       │   ├── store/      # Form state management
         │       │   └── index.tsx   # Main form component
         │       │
         │       ├── CompositionForm/ # Similar modular structure
@@ -72,8 +81,8 @@ Components follow a modular pattern with clear separation of concerns:
 
 - **Main Component** (`index.tsx`): Simple orchestration of sub-components
 - **Components Folder**: Individual UI sections of the form or feature
-- **Store**: Zustand state management for the component
-- **Hooks**: Custom hooks for initializing state and handling side effects
+- **Centralized Store**: A single Zustand store that manages the entire application state
+- **Specialized Hooks**: Form-specific hooks that access only the relevant parts of the central store
 
 ## Features
 
@@ -82,6 +91,8 @@ Components follow a modular pattern with clear separation of concerns:
 - Modern UI with support for dark/light themes
 - Drag-and-drop functionality for organizing content
 - Responsive design for desktop and mobile devices
+- Centralized state management with Zustand
+- Modular architecture with specialized state access hooks
 
 ## Getting Started
 

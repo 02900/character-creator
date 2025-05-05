@@ -3,11 +3,16 @@
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
-import { useBackgroundFormStore } from "../store/useBackgroundFormStore"
+import { useBackgroundForm } from "../../../../hooks/useBackgroundForm"
 
 export function ParticlesSelector() {
   const { t } = useI18n()
-  const { config, updateParticles } = useBackgroundFormStore()
+  const { config, updateConfig } = useBackgroundForm()
+  
+  // Helper function to update particles
+  const updateParticles = (value: string) => {
+    updateConfig({ particles: value as 'none' | 'dust' | 'leaves' | 'embers' | 'snowflakes' | 'sparks' })
+  }
 
   return (
     <div className="mb-4">

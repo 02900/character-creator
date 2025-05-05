@@ -3,19 +3,19 @@
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useI18n } from "@/lib/i18n"
-import { useCompositionFormStore } from "../store/useCompositionFormStore"
+import { useCompositionForm } from "../../../../hooks/useCompositionForm"
 
 export function LineWeightSelector() {
   const { t } = useI18n()
-  const { config, updateLineWeight } = useCompositionFormStore()
+  const { lineArtConfig, updateLineArtConfig } = useCompositionForm()
 
   return (
     <div>
       <h4 className="text-md font-medium mb-2">{t('modules.character-creator.components.forms.LineArtForm.lineWeight')}</h4>
       <RadioGroup
-        value={config.lineArt?.lineWeight || "medium"}
+        value={lineArtConfig?.lineWeight || "medium"}
         onValueChange={(value) => 
-          updateLineWeight(value as 'bold' | 'medium' | 'fine')}
+          updateLineArtConfig({ lineWeight: value as 'bold' | 'medium' | 'fine' })}
         className="grid grid-cols-3 gap-4"
       >
         <div>

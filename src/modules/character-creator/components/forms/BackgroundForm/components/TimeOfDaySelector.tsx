@@ -4,11 +4,16 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useI18n } from "@/lib/i18n"
-import { useBackgroundFormStore } from "../store/useBackgroundFormStore"
+import { useBackgroundForm } from "../../../../hooks/useBackgroundForm"
 
 export function TimeOfDaySelector() {
   const { t } = useI18n()
-  const { config, updateTimeOfDay } = useBackgroundFormStore()
+  const { config, updateConfig } = useBackgroundForm()
+  
+  // Helper function to update time of day
+  const updateTimeOfDay = (value: string) => {
+    updateConfig({ timeOfDay: value as 'dawn' | 'day' | 'dusk' | 'night' })
+  }
 
   return (
     <div className="mb-4">

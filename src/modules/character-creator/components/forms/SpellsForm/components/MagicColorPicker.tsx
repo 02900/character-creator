@@ -3,11 +3,23 @@
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useI18n } from "@/lib/i18n"
-import { useSpellsFormStore } from "../store/useSpellsFormStore"
+import { useSpellsForm } from "../../../../hooks/useSpellsForm"
 
 export function MagicColorPicker() {
   const { t } = useI18n()
-  const { config, updateMagicColor } = useSpellsFormStore()
+  const { config, updateConfig } = useSpellsForm()
+  
+  // Helper function to update magic color
+  const updateMagicColor = (color: string) => {
+    if (!config.magic) return
+    
+    updateConfig({
+      magic: {
+        ...config.magic,
+        color
+      }
+    })
+  }
 
   const colorValue = config.magic?.color || "#3b82f6"
 

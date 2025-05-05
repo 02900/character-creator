@@ -1,18 +1,13 @@
 "use client"
 
-import { ColoringBookIllustrationConfig } from "@/lib/types"
 import { FormHeader } from "./components/FormHeader"
 import { ArtStyleSelector } from "./components/ArtStyleSelector"
 import { GenreManagement } from "./components/GenreManagement"
-import { useStyleFormInit } from "./hooks/useStyleFormInit"
+import { useStyleForm } from "../../../hooks/useStyleForm"
 
-interface StyleFormProps {
-  config: ColoringBookIllustrationConfig
-  updateConfig: (config: Partial<ColoringBookIllustrationConfig>) => void
-}
-
-export function StyleForm({ config, updateConfig }: StyleFormProps) {
-  useStyleFormInit({ config, updateConfig })
+export function StyleForm() {
+  // Use the centralized store through our custom hook
+  useStyleForm()
 
   return (
     <div className="space-y-6">

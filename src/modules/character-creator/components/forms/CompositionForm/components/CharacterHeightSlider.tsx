@@ -3,12 +3,19 @@
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { useI18n } from "@/lib/i18n"
-import { useCompositionFormStore } from "../store/useCompositionFormStore"
+import { useCompositionForm } from "../../../../hooks/useCompositionForm"
 import { formatInches, metersToInches } from "../utils/heightConversion"
 
 export function CharacterHeightSlider() {
   const { t } = useI18n()
-  const { config, updateHeight } = useCompositionFormStore()
+  const { config, updateConfig } = useCompositionForm()
+  
+  // Helper function to update height
+  const updateHeight = (value: number[]) => {
+    updateConfig({
+      characterHeight: value[0]
+    })
+  }
 
   return (
     <div className="grid gap-2">

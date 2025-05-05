@@ -3,14 +3,14 @@
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useI18n } from "@/lib/i18n"
-import { useStyleFormStore } from "../store/useStyleFormStore"
+import { useStyleForm } from "../../../../hooks/useStyleForm"
 
 export function ArtStyleSelector() {
   const { t } = useI18n()
-  const { config, updateArtStyle } = useStyleFormStore()
+  const { config, updateConfig } = useStyleForm()
   
   const handleValueChange = (value: string) => {
-    updateArtStyle(value as 'anime' | 'manga' | 'comic' | 'toon' | 'webtoon')
+    updateConfig({ artStyle: value })
   }
   
   return (

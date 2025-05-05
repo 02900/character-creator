@@ -1,14 +1,14 @@
 "use client"
 
 import { Separator } from "@/components/ui/separator"
-import { useSpellsFormStore } from "../store/useSpellsFormStore"
+import { useSpellsForm } from "../../../../hooks/useSpellsForm"
 import { MagicTypeSelector } from "./MagicTypeSelector"
 import { MagicIntensitySelector } from "./MagicIntensitySelector"
 import { MagicColorPicker } from "./MagicColorPicker"
 import { AdditionalEffects } from "./AdditionalEffects"
 
 export function MagicSettings() {
-  const { config } = useSpellsFormStore()
+  const { config } = useSpellsForm()
 
   if (!config.magic) return null
 

@@ -1,31 +1,17 @@
 "use client"
 
 import { Separator } from "@/components/ui/separator"
-import { CharacterConfig, EffectsConfig } from "@/lib/types"
+import { useRaceClassForm } from "../../../hooks/useRaceClassForm"
 import { FormHeader } from "./components/FormHeader"
 import { RaceSelector } from "./components/RaceSelector"
 import { ClassSelector } from "./components/ClassSelector"
 import { ClassRaceCombination } from "./components/ClassRaceCombination"
 import { RaceEffectsSection } from "./components/RaceEffectsSection"
 import { ClassEffectsSection } from "./components/ClassEffectsSection"
-import { useRaceClassFormInit } from "./hooks/useRaceClassFormInit"
-import { useRaceClassFormStore } from "./store/useRaceClassFormStore"
 
-interface RaceClassFormProps {
-  config: CharacterConfig
-  updateConfig: (config: CharacterConfig) => void
-  effectsConfig?: EffectsConfig
-  updateEffectsConfig?: (config: EffectsConfig) => void
-}
-
-export function RaceClassForm({
-  config,
-  updateConfig,
-  effectsConfig = {},
-  updateEffectsConfig,
-}: RaceClassFormProps) {
-  useRaceClassFormInit({ config, updateConfig, effectsConfig, updateEffectsConfig })
-  const { selectedRace, selectedClass } = useRaceClassFormStore()
+export function RaceClassForm() {
+  // Using the centralized store through our hook
+  const { config } = useRaceClassForm()
 
   return (
     <div className="space-y-6">
@@ -39,7 +25,7 @@ export function RaceClassForm({
       <Separator />
 
       <div>
-        {selectedRace && selectedClass && <ClassRaceCombination />}
+        {config.race && config.class && <ClassRaceCombination />}
       </div>
 
       <Separator className="my-8" />

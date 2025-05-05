@@ -1,22 +1,18 @@
 "use client"
 
 import { Separator } from "@/components/ui/separator"
-import { CharacterConfig } from "@/lib/types"
+import { useCharacterForm } from "../../../hooks/useCharacterForm"
 import { FormHeader } from "./components/FormHeader"
 import { LevelSlider } from "./components/LevelSlider"
 import { ExpressionSelector } from "./components/ExpressionSelector"
 import { PoseSelector } from "./components/PoseSelector"
 import { HandsSection } from "./components/HandsSection"
 import { ClothingSection } from "./components/ClothingSection"
-import { useCharacterFormInit } from "./hooks/useCharacterFormInit"
+// Using central store hook instead of initialization hook
 
-interface CharacterFormProps {
-  config: CharacterConfig
-  updateConfig: (config: CharacterConfig) => void
-}
-
-export function CharacterForm({ config, updateConfig }: CharacterFormProps) {
-  useCharacterFormInit({ config, updateConfig })
+export function CharacterForm() {
+  // Now using the centralized store through our hook
+  useCharacterForm()
 
   return (
     <div className="space-y-6">

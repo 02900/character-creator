@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
@@ -12,7 +13,8 @@ import { SpellsForm } from "./components/forms/SpellsForm";
 import { BackgroundForm } from "./components/forms/BackgroundForm";
 import { CompositionForm } from "./components/forms/CompositionForm";
 import { WeaponsForm } from "./components/forms/WeaponsForm";
-import { ColoringBookIllustrationConfig, defaultConfig } from "@/lib/types";
+// ColoringBookIllustrationConfig import removed as it's no longer used directly
+import { useCharacterCreatorStore } from "./store/useCharacterCreatorStore";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useI18n } from "@/lib/i18n";
@@ -41,7 +43,6 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import {
-  generateDefaultName,
   characterNameExists,
   saveCharacter,
   getSavedCharacters,
@@ -49,13 +50,17 @@ import {
 
 export function CharacterCreator() {
   const searchParams = useSearchParams();
-  const [config, setConfig] =
-    useState<ColoringBookIllustrationConfig>(defaultConfig);
+  const { 
+    config, 
+    characterName, 
+    loadConfig,
+    setCharacterName,
+    setEditMode,
+    resetConfig
+  } = useCharacterCreatorStore();
   const { t } = useI18n();
-  const [characterName, setCharacterName] = useState<string>("");
   const [saveDialogOpen, setSaveDialogOpen] = useState<boolean>(false);
   const [nameExists, setNameExists] = useState<boolean>(false);
-  const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const saveInputRef = useRef<HTMLInputElement>(null);
 
   // Load character from URL if provided
@@ -70,9 +75,9 @@ export function CharacterCreator() {
 
       if (foundCharacter) {
         // Load character data
-        setConfig(foundCharacter.config);
+        loadConfig(foundCharacter.config);
         setCharacterName(foundCharacter.name);
-        setIsEditMode(true);
+        setEditMode(true);
         toast.success(t("characters.loaded") || "Character loaded", {
           description:
             t("characters.loadedDescription") ||
@@ -80,15 +85,9 @@ export function CharacterCreator() {
         });
       }
     }
-  }, [searchParams, t]);
+  }, [searchParams, t, loadConfig, setCharacterName, setEditMode]);
 
-  // Generate default name when race or class changes, but only if not in edit mode
-  useEffect(() => {
-    if (!isEditMode) {
-      const defaultName = generateDefaultName(config);
-      setCharacterName(defaultName);
-    }
-  }, [config, config.character.race, config.character.class, isEditMode]);
+  // Name generation is now handled within the store
 
   // Focus the input when save dialog opens
   useEffect(() => {
@@ -104,17 +103,10 @@ export function CharacterCreator() {
     return exists;
   };
 
-  const updateConfig = (
-    partialConfig: Partial<ColoringBookIllustrationConfig>
-  ) => {
-    setConfig((prevConfig) => ({
-      ...prevConfig,
-      ...partialConfig,
-    }));
-  };
+  // No longer needed, handled by the store
 
-  const resetConfig = () => {
-    setConfig(defaultConfig);
+  const handleResetConfig = () => {
+    resetConfig();
     toast("Reset configuration.", {
       description: "Character configuration has been reset to default values.",
     });
@@ -220,57 +212,31 @@ export function CharacterCreator() {
 
           <Card className="mt-4 p-4">
             <TabsContent value="style" className="mt-0">
-              <StyleForm config={config} updateConfig={updateConfig} />
+              <StyleForm />
             </TabsContent>
 
             <TabsContent value="raceclass" className="mt-0">
-              <RaceClassForm
-                config={config.character}
-                updateConfig={(character) => updateConfig({ character })}
-                effectsConfig={config.effects}
-                updateEffectsConfig={(effects) => updateConfig({ effects })}
-              />
+              <RaceClassForm />
             </TabsContent>
 
             <TabsContent value="character" className="mt-0">
-              <CharacterForm
-                config={config.character}
-                updateConfig={(character) => updateConfig({ character })}
-              />
+              <CharacterForm />
             </TabsContent>
 
             <TabsContent value="weapons" className="mt-0">
-              <WeaponsForm
-                config={config.weapons}
-                updateConfig={(weapons) => updateConfig({ weapons })}
-              />
+              <WeaponsForm />
             </TabsContent>
 
             <TabsContent value="spells" className="mt-0">
-              <SpellsForm
-                config={config.effects}
-                updateConfig={(effects) => updateConfig({ effects })}
-              />
+              <SpellsForm />
             </TabsContent>
 
             <TabsContent value="background" className="mt-0">
-              <BackgroundForm
-                config={config.background}
-                updateConfig={(background) => updateConfig({ background })}
-              />
+              <BackgroundForm />
             </TabsContent>
 
             <TabsContent value="composition" className="mt-0">
-              <CompositionForm
-                config={config.composition}
-                updateConfig={(composition) => {
-                  const updatedComposition = {
-                    ...config.composition,
-                    ...composition,
-                  };
-                  updateConfig({ composition: updatedComposition });
-                }}
-              />
+              <CompositionForm />
             </TabsContent>
           </Card>
         </Tabs>
@@ -283,7 +249,7 @@ export function CharacterCreator() {
             </Link>
           </Button>
 
-          <Button variant="outline" onClick={resetConfig}>
+          <Button variant="outline" onClick={handleResetConfig}>
             {t("common.reset") || "Reset"}
           </Button>
 
@@ -372,7 +338,7 @@ export function CharacterCreator() {
         </div>
       </div>
 
-      <CharacterPreview config={config} />
+      <CharacterPreview />
     </div>
   );
 }

@@ -3,11 +3,21 @@
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
-import { useCharacterFormStore } from "../store/useCharacterFormStore"
+import { useCharacterForm } from "../../../../hooks/useCharacterForm"
 
 export function ClothingFlowSelector() {
   const { t } = useI18n()
-  const { config, updateClothingFlow } = useCharacterFormStore()
+  const { config, updateConfig } = useCharacterForm()
+  
+  // Helper function to update clothing flow
+  const updateClothingFlow = (value: string) => {
+    updateConfig({
+      clothing: {
+        ...config.clothing,
+        flow: value as 'none' | 'dynamic' | 'still'
+      }
+    })
+  }
 
   return (
     <div className="grid gap-2">

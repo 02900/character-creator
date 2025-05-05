@@ -7,13 +7,35 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useI18n } from "@/lib/i18n"
 import { X } from "lucide-react"
-import { useCharacterFormStore } from "../store/useCharacterFormStore"
+import { useCharacterForm } from "../../../../hooks/useCharacterForm"
 import { useClothingPatterns } from "../hooks/useClothingPatterns"
 
 export function PatternsSelector() {
   const { t } = useI18n()
   const { patterns: predefinedPatterns } = useClothingPatterns()
-  const { config, addPattern, removePattern } = useCharacterFormStore()
+  const { config, updateConfig } = useCharacterForm()
+  
+  // Helper functions for pattern management
+  const addPattern = (pattern: string) => {
+    const currentPatterns = config.clothing?.patterns || []
+    updateConfig({
+      clothing: {
+        ...config.clothing,
+        patterns: [...currentPatterns, pattern]
+      }
+    })
+  }
+  
+  const removePattern = (index: number) => {
+    const currentPatterns = [...(config.clothing?.patterns || [])]
+    currentPatterns.splice(index, 1)
+    updateConfig({
+      clothing: {
+        ...config.clothing,
+        patterns: currentPatterns
+      }
+    })
+  }
   const [newPattern, setNewPattern] = useState("")
 
   const handleAddPattern = () => {

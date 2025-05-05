@@ -1,18 +1,14 @@
 "use client"
 
-import { EffectsConfig } from "@/lib/types"
+import { useSpellsForm } from "../../../hooks/useSpellsForm"
 import { FormHeader } from "./components/FormHeader"
 import { MagicToggle } from "./components/MagicToggle"
 import { MagicSettings } from "./components/MagicSettings"
-import { useSpellsFormInit } from "./hooks/useSpellsFormInit"
+// Using central store hook instead of initialization hook
 
-interface SpellsFormProps {
-  config?: EffectsConfig
-  updateConfig: (config: EffectsConfig) => void
-}
-
-export function SpellsForm({ config = {}, updateConfig }: SpellsFormProps) {
-  useSpellsFormInit({ config, updateConfig })
+export function SpellsForm() {
+  // Now using the centralized store through our hook
+  useSpellsForm()
 
   return (
     <div className="space-y-6">

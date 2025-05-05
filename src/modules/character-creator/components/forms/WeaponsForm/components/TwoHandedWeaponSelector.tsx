@@ -10,12 +10,17 @@ import {
 } from "@/components/ui/select";
 import { useI18n } from "@/lib/i18n";
 import { useWeaponTypes } from "../hooks/useWeaponTypes";
-import { useWeaponsFormStore } from "../store/useWeaponsFormStore";
+import { useWeaponsForm } from "../../../../hooks/useWeaponsForm";
 
 export function TwoHandedWeaponSelector() {
   const { t } = useI18n();
   const { twoHandedWeapons } = useWeaponTypes();
-  const { config, updateTwoHanded } = useWeaponsFormStore();
+  const { config, updateConfig } = useWeaponsForm();
+  
+  // Helper function to update two-handed weapon
+  const updateTwoHanded = (value: string) => {
+    updateConfig({ twoHanded: value });
+  };
 
   // Only render when category is two_handed
   if (config.category !== "two_handed") return null;

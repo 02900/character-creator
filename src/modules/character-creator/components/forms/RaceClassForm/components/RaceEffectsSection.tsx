@@ -7,13 +7,28 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch"
 import { useI18n } from "@/lib/i18n"
 import { useRacesClasses } from "@/modules/character-creator/hooks/useRacesClasses"
-import { useRaceClassFormStore } from "../store/useRaceClassFormStore"
+import { useRaceClassForm } from "../../../../hooks/useRaceClassForm"
 
 export function RaceEffectsSection() {
   const { t } = useI18n()
   const { races } = useRacesClasses()
-  const { selectedRace, effectsConfig, toggleRaceEffect } = useRaceClassFormStore()
+  const { config, effectsConfig, updateEffectsConfig } = useRaceClassForm()
+  
+  // Helper function to toggle race effects
+  const toggleRaceEffect = (effect: string, value: string | boolean) => {
+    // Get current race effects or initialize empty object
+    const currentRaceEffects = effectsConfig.raceEffects || {}
+    
+    // Update the effects object with the new value
+    updateEffectsConfig({
+      raceEffects: {
+        ...currentRaceEffects,
+        [effect]: value
+      }
+    })
+  }
 
+  const selectedRace = config.race
   const raceName = races.find((r) => r.id === selectedRace)?.name || ""
 
   return (

@@ -1,6 +1,6 @@
 "use client"
 
-import { CompositionConfig } from "@/lib/types"
+import { useCompositionForm } from "../../../hooks/useCompositionForm"
 import { FormHeader } from "./components/FormHeader"
 import { CharacterSizeSelector } from "./components/CharacterSizeSelector"
 import { CharacterPositionSelector } from "./components/CharacterPositionSelector"
@@ -9,18 +9,11 @@ import { CharacterHeightSlider } from "./components/CharacterHeightSlider"
 import { PageSizeSelector } from "./components/PageSizeSelector"
 import { LineWeightSelector } from "./components/LineWeightSelector"
 import { LineEffectsSection } from "./components/LineEffectsSection"
-import { useCompositionFormInit } from "./hooks/useCompositionFormInit"
+// Using central store hook instead of initialization hook
 
-interface CompositionFormProps {
-  config: CompositionConfig
-  updateConfig: (config: Partial<CompositionConfig>) => void
-}
-
-export function CompositionForm({
-  config,
-  updateConfig,
-}: CompositionFormProps) {
-  useCompositionFormInit({ config, updateConfig })
+export function CompositionForm() {
+  // Now using the centralized store through our hook
+  useCompositionForm()
 
   return (
     <div className="space-y-6">

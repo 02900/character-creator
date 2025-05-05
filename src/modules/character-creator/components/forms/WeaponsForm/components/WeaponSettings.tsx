@@ -10,11 +10,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useI18n } from "@/lib/i18n";
-import { useWeaponsFormStore } from "../store/useWeaponsFormStore";
+import { useWeaponsForm } from "../../../../hooks/useWeaponsForm";
 
 export function WeaponSettings() {
   const { t } = useI18n();
-  const { config, toggleEnchanted, updateStyle } = useWeaponsFormStore();
+  const { config, updateConfig } = useWeaponsForm();
+  
+  // Helper functions to toggle enchanted and update style
+  const toggleEnchanted = (checked: boolean) => {
+    updateConfig({ enchanted: checked });
+  };
+  
+  const updateStyle = (value: string) => {
+    updateConfig({ style: value as 'plain' | 'ornate' | 'magical' | 'runic' | 'ancient' });
+  };
 
   // Only render when a weapon category is selected
   if (config.category === "none") return null;
