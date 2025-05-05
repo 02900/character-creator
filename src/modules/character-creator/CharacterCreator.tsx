@@ -207,8 +207,8 @@ export function CharacterCreator() {
   };
 
   return (
-    <div className="flex flex-col gap-8 md:flex-row">
-      <div className="md:w-2/3">
+    <div className="flex md:flex-row gap-2">
+      <div className="flex flex-col">
         <Tabs defaultValue="character" className="w-full">
           <TabsList className="grid w-full grid-cols-8">
             <TabsTrigger value="page">Page</TabsTrigger>

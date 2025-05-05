@@ -80,6 +80,8 @@ export interface EffectsConfig {
 export interface BackgroundConfig {
   clouds?: boolean;
   lightning?: boolean;
+  // Scenery type for the background
+  scenery?: 'forest' | 'castle' | 'mountain' | 'desert' | 'cave' | 'village' | 'temple' | 'beach' | 'dungeon' | 'city' | 'none';
   // Environment effects (moved from EffectsConfig)
   weatherEffect?: 'clear' | 'rain' | 'storm' | 'snow' | 'fog';
   timeOfDay?: 'dawn' | 'day' | 'dusk' | 'night';
@@ -147,6 +149,9 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
   background: {
     clouds: true,
     lightning: true,
+    scenery: 'forest',
+    weatherEffect: 'clear',
+    timeOfDay: 'dusk',
   },
   composition: {
     characterSizeRatio: '70%',

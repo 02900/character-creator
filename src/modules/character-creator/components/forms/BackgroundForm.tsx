@@ -14,6 +14,7 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { useSceneryTypes } from "../../data/useSceneryTypes"
 
 interface BackgroundFormProps {
   config?: BackgroundConfig
@@ -22,6 +23,7 @@ interface BackgroundFormProps {
 
 export function BackgroundForm({ config = {}, updateConfig }: BackgroundFormProps) {
   const { t } = useI18n();
+  const { sceneryTypes } = useSceneryTypes();
 
   const handleToggleClouds = (checked: boolean) => {
     updateConfig({
@@ -34,6 +36,14 @@ export function BackgroundForm({ config = {}, updateConfig }: BackgroundFormProp
     updateConfig({
       ...config,
       lightning: checked
+    })
+  }
+  
+  // Handle scenery selection
+  const handleSceneryChange = (value: string) => {
+    updateConfig({
+      ...config,
+      scenery: value as 'forest' | 'castle' | 'mountain' | 'desert' | 'cave' | 'village' | 'temple' | 'beach' | 'dungeon' | 'city' | 'none'
     })
   }
   
@@ -68,33 +78,59 @@ export function BackgroundForm({ config = {}, updateConfig }: BackgroundFormProp
         </p>
       </div>
       
-      <div className="space-y-4">
-        <div className="flex items-center justify-between rounded-lg border p-4">
-          <div className="space-y-0.5">
-            <Label htmlFor="clouds">{t('modules.character-creator.components.forms.BackgroundForm.clouds.label')}</Label>
-            <div className="text-xs text-muted-foreground">
-              {t('modules.character-creator.components.forms.BackgroundForm.clouds.description')}
-            </div>
+      <div className="space-y-6">
+        {/* Scenery Selection */}
+        <div className="mb-6 space-y-2">
+          <Label>{t('modules.character-creator.components.forms.BackgroundForm.scenery.label')}</Label>
+          <div className="text-xs text-muted-foreground mb-2">
+            {t('modules.character-creator.components.forms.BackgroundForm.scenery.description')}
           </div>
-          <Switch
-            id="clouds"
-            checked={config.clouds || false}
-            onCheckedChange={handleToggleClouds}
-          />
+          <Select
+            value={config.scenery || "none"}
+            onValueChange={handleSceneryChange}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder={t('modules.character-creator.components.forms.BackgroundForm.scenery.placeholder')} />
+            </SelectTrigger>
+            <SelectContent>
+              {sceneryTypes.map((scenery) => (
+                <SelectItem key={scenery.id} value={scenery.id}>
+                  {scenery.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         
-        <div className="flex items-center justify-between rounded-lg border p-4">
-          <div className="space-y-0.5">
-            <Label htmlFor="lightning">{t('modules.character-creator.components.forms.BackgroundForm.lightning.label')}</Label>
-            <div className="text-xs text-muted-foreground">
-              {t('modules.character-creator.components.forms.BackgroundForm.lightning.description')}
+        {/* Sky Effects */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between rounded-lg border p-4">
+            <div className="space-y-0.5">
+              <Label htmlFor="clouds">{t('modules.character-creator.components.forms.BackgroundForm.clouds.label')}</Label>
+              <div className="text-xs text-muted-foreground">
+                {t('modules.character-creator.components.forms.BackgroundForm.clouds.description')}
+              </div>
             </div>
+            <Switch
+              id="clouds"
+              checked={config.clouds || false}
+              onCheckedChange={handleToggleClouds}
+            />
           </div>
-          <Switch
-            id="lightning"
-            checked={config.lightning || false}
-            onCheckedChange={handleToggleLightning}
-          />
+          
+          <div className="flex items-center justify-between rounded-lg border p-4">
+            <div className="space-y-0.5">
+              <Label htmlFor="lightning">{t('modules.character-creator.components.forms.BackgroundForm.lightning.label')}</Label>
+              <div className="text-xs text-muted-foreground">
+                {t('modules.character-creator.components.forms.BackgroundForm.lightning.description')}
+              </div>
+            </div>
+            <Switch
+              id="lightning"
+              checked={config.lightning || false}
+              onCheckedChange={handleToggleLightning}
+            />
+          </div>
         </div>
       </div>
 
