@@ -9,8 +9,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useI18n } from "@/lib/i18n";
-import { useWeaponTypes } from "@/modules/character-creator/data/useWeaponTypes";
 import { useWeaponsFormStore } from "../store/useWeaponsFormStore";
+import { useWeaponTypes } from "../hooks/useWeaponTypes";
 
 export function DualWieldWeaponSelector() {
   const { t } = useI18n();

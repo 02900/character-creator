@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useI18n } from "@/lib/i18n";
-import { useWeaponTypes } from "@/modules/character-creator/data/useWeaponTypes";
+import { useWeaponTypes } from "../hooks/useWeaponTypes";
 import { useWeaponsFormStore } from "../store/useWeaponsFormStore";
 
 export function TwoHandedWeaponSelector() {

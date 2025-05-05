@@ -1,7 +1,7 @@
 "use client"
 
 import { useI18n } from "@/lib/i18n"
-import { useRacesClasses } from "@/modules/character-creator/data/useRacesClasses"
+import { useRacesClasses } from "@/modules/character-creator/hooks/useRacesClasses"
 import { useRaceClassFormStore } from "../store/useRaceClassFormStore"
 
 export function ClassRaceCombination() {

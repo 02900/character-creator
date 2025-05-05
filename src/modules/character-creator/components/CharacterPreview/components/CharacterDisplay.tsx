@@ -1,6 +1,6 @@
 "use client";
 
-import { useRacesClasses } from "@/modules/character-creator/data/useRacesClasses";
+import { useRacesClasses } from "@/modules/character-creator/hooks/useRacesClasses";
 import { useCharacterPreviewStore } from "../store/useCharacterPreviewStore";
 
 export function CharacterDisplay() {

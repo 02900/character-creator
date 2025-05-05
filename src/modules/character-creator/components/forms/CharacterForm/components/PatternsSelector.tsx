@@ -7,8 +7,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useI18n } from "@/lib/i18n"
 import { X } from "lucide-react"
-import { useClothingPatterns } from "@/modules/character-creator/data/useClothingPatterns"
 import { useCharacterFormStore } from "../store/useCharacterFormStore"
+import { useClothingPatterns } from "../hooks/useClothingPatterns"
 
 export function PatternsSelector() {
   const { t } = useI18n()

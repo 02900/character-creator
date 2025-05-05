@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
-import { useRacesClasses } from "@/modules/character-creator/data/useRacesClasses"
+import { useRacesClasses } from "@/modules/character-creator/hooks/useRacesClasses"
 import { useRaceClassFormStore } from "../store/useRaceClassFormStore"
 import { useEffect } from "react"
 

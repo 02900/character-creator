@@ -6,8 +6,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
-import { useGenres } from "@/modules/character-creator/data/useGenres"
 import { useStyleFormStore } from "../store/useStyleFormStore"
+import { useGenres } from "../hooks/useGenres"
 
 export function GenreManagement() {
   const { t } = useI18n()

@@ -3,8 +3,8 @@
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useI18n } from "@/lib/i18n"
-import { useSceneryTypes } from "@/modules/character-creator/data/useSceneryTypes"
 import { useBackgroundFormStore } from "../store/useBackgroundFormStore"
+import { useSceneryTypes } from "../hooks/useSceneryTypes"
 
 export function ScenerySelector() {
   const { t } = useI18n()
