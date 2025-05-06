@@ -39,6 +39,32 @@ export const CharacterForm = {
     heroic: 'Heroic',
     average: 'Average'
   },
+  sex: {
+    title: 'Character Sex',
+    label: 'Biological Sex',
+    placeholder: 'Select character sex',
+    male: 'Male',
+    female: 'Female',
+    undefined: 'Undefined'
+  },
+  beauty: {
+    title: 'Character Beauty',
+    label: 'Beauty Rating',
+    description: 'Rate the character\'s physical attractiveness from 1 to 10',
+    currentValue: 'Current: {{value}}/10',
+    ratings: {
+      1: 'Extremely Plain',
+      2: 'Very Plain',
+      3: 'Plain',
+      4: 'Average',
+      5: 'Attractive',
+      6: 'Very Attractive',
+      7: 'Beautiful',
+      8: 'Very Beautiful',
+      9: 'Stunning',
+      10: 'Extraordinarily Beautiful'
+    }
+  },
   pose: 'Character Pose',
   poseSelect: 'Select a pose',
   poseDescription: 'Pose Description',

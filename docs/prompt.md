@@ -72,6 +72,8 @@ export interface CharacterConfig {
   race?: string;         // References Race.id
   class?: string;        // References Class.id
   level?: number;        // Character's level (e.g., 1–100)
+  sex?: 'male' | 'female' | 'undefined'; // Character's biological sex
+  beauty?: number;       // Physical attractiveness rating (1-10)
   pose: 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle' | 'action_ready' | 'casting' | 'dynamic_movement' | 'defensive' | 'meditative';
   expression: string;    // Facial expression
   muscleDefinition?: 'slim' | 'athletic' | 'muscular' | 'bulky' | 'heroic' | 'average'; // Body physique type

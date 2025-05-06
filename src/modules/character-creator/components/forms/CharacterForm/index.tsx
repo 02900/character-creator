@@ -5,6 +5,8 @@ import { useCharacterForm } from "../../../hooks/useCharacterForm"
 import { FormHeader } from "./components/FormHeader"
 import { LevelSlider } from "./components/LevelSlider"
 import { ExpressionSelector } from "./components/ExpressionSelector"
+import { SexSelector } from "./components/SexSelector"
+import { BeautyRatingSection } from "./components/BeautyRatingSection"
 import { PoseSelector } from "./components/PoseSelector"
 import { MuscleDefinitionSection } from "./components/MuscleDefinitionSection"
 import { HandsSection } from "./components/HandsSection"
@@ -22,6 +24,9 @@ export function CharacterForm() {
       <div className="space-y-4">
         <LevelSlider />
         <ExpressionSelector />
+        <SexSelector />
+        <BeautyRatingSection />
+        <Separator />
         <PoseSelector />
         <MuscleDefinitionSection />
         <Separator />
