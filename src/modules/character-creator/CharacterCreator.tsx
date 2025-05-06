@@ -114,6 +114,8 @@ export function CharacterCreator() {
 
   const exportConfig = () => {
     const configJson = JSON.stringify(config, null, 2);
+    
+    // Download file
     const blob = new Blob([configJson], { type: "application/json" });
     const url = URL.createObjectURL(blob);
 
@@ -125,9 +127,27 @@ export function CharacterCreator() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 
-    toast(t("common.exportSuccess"), {
-      description: t("common.exportDescription"),
+    toast(t("common.exportSuccess") || "Export successful", {
+      description: t("common.exportDescription") || "Configuration has been exported as JSON",
     });
+  };
+  
+  const copyConfigToClipboard = () => {
+    const configJson = JSON.stringify(config, null, 2);
+    
+    // Copy to clipboard
+    try {
+      navigator.clipboard.writeText(configJson).then(() => {
+        toast.success(t("common.copiedToClipboard") || "Copied to clipboard", {
+          description: t("common.configCopiedDescription") || "Configuration JSON copied to clipboard"
+        });
+      }).catch(err => {
+        console.error("Failed to copy to clipboard:", err);
+        toast.error(t("common.clipboardError") || "Failed to copy to clipboard");
+      });
+    } catch (err) {
+      console.error("Clipboard API not available:", err);
+    }
   };
 
   // Save character to localStorage
@@ -317,6 +337,10 @@ export function CharacterCreator() {
 
           <Button onClick={exportConfig}>
             {t("common.exportConfig") || "Export Configuration"}
+          </Button>
+
+          <Button variant="outline" onClick={copyConfigToClipboard}>
+            {t("common.copyToClipboard") || "Copy to Clipboard"}
           </Button>
 
           <DropdownMenu>
