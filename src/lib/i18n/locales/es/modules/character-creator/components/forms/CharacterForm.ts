@@ -71,7 +71,8 @@ export const CharacterForm = {
         fist: 'Puño cerrado',
         pointing: 'Señalando',
         weapon_grip: 'Empuñando arma',
-        magic_circle: 'Formando círculo mágico'
+        magic_circle: 'Formando círculo mágico',
+        shield_hold: 'Sosteniendo escudo'
       },
       left: {
         open_loose: 'Abierta y relajada',
@@ -80,7 +81,10 @@ export const CharacterForm = {
         shield_hold: 'Sosteniendo escudo',
         clenched_fist: 'Puño apretado',
         holding_orb: 'Sosteniendo orbe mágico',
-        spell_casting: 'Lanzando hechizo'
+        spell_casting: 'Lanzando hechizo',
+        weapon_grip: 'Empuñando arma',
+        magic_circle: 'Formando círculo mágico',
+        two_fingers_cast: 'Lanzamiento con dos dedos'
       }
     }
   },

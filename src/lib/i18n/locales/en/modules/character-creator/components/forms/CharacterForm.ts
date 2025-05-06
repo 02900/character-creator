@@ -71,7 +71,8 @@ export const CharacterForm = {
         fist: 'Clenched Fist',
         pointing: 'Pointing',
         weapon_grip: 'Weapon Grip',
-        magic_circle: 'Magic Circle Formation'
+        magic_circle: 'Magic Circle Formation',
+        shield_hold: 'Shield Holding'
       },
       left: {
         open_loose: 'Open Loose',
@@ -80,7 +81,10 @@ export const CharacterForm = {
         shield_hold: 'Shield Holding',
         clenched_fist: 'Clenched Fist',
         holding_orb: 'Holding Magical Orb',
-        spell_casting: 'Spell Casting Motion'
+        spell_casting: 'Spell Casting Motion',
+        weapon_grip: 'Weapon Grip',
+        magic_circle: 'Magic Circle Formation',
+        two_fingers_cast: 'Two Fingers Casting Gesture'
       }
     }
   },
