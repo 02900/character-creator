@@ -92,7 +92,6 @@ export interface CompositionConfig {
   pageSize: '8.5x11' | 'A4' | 'Letter';
   characterSizeRatio: '60%' | '70%' | '80%';
   characterPosition: 'centered' | 'slightly_above_center' | 'low_center';
-  margin: number; // inches
   characterHeight?: number; // height in meters
 }
 
@@ -156,6 +155,5 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
     characterSizeRatio: '70%',
     characterHeight: 1.8,
     characterPosition: 'slightly_above_center',
-    margin: 1.0
   }
 };

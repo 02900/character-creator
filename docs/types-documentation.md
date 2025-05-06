@@ -136,7 +136,6 @@ export interface CompositionConfig {
   pageSize: '8.5x11' | 'A4' | 'Letter'; // Standard paper size for the illustration
   characterSizeRatio: '60%' | '70%' | '80%'; // How much of the page the character occupies
   characterPosition: 'centered' | 'slightly_above_center' | 'low_center'; // Vertical positioning of character
-  margin: number;           // Margin size in inches around the illustration
   characterHeight?: number; // Character's height in meters for scale reference
 }
 ```
