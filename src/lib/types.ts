@@ -32,6 +32,8 @@ export interface CharacterConfig {
   race?: string; // ID of the selected race
   class?: string; // ID of the selected class
   level?: number; // Character level (1-100)
+  sex?: 'male' | 'female' | 'undefined'; // Character's biological sex
+  beauty?: number; // Character beauty rating (1-10)
   pose: 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle' | 'action_ready' | 'casting' | 'dynamic_movement' | 'defensive' | 'meditative';
   expression: string;
   muscleDefinition?: 'slim' | 'athletic' | 'muscular' | 'bulky' | 'heroic' | 'average'; // Character's muscle definition
@@ -126,6 +128,8 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
     race: 'undead',
     class: 'necromancer',
     level: 50,
+    sex: 'male',
+    beauty: 7,
     pose: 'three_quarter',
     expression: 'piercing hollow eyes under hood',
     muscleDefinition: 'slim',

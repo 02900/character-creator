@@ -39,6 +39,32 @@ export const CharacterForm = {
     heroic: 'Heroico',
     average: 'Promedio'
   },
+  sex: {
+    title: 'Sexo del Personaje',
+    label: 'Sexo Biológico',
+    placeholder: 'Seleccionar sexo del personaje',
+    male: 'Masculino',
+    female: 'Femenino',
+    undefined: 'No Definido'
+  },
+  beauty: {
+    title: 'Belleza del Personaje',
+    label: 'Nivel de Belleza',
+    description: 'Califica la belleza física del personaje del 1 al 10',
+    currentValue: 'Actual: {{value}}/10',
+    ratings: {
+      1: 'Extremadamente Común',
+      2: 'Muy Común',
+      3: 'Común',
+      4: 'Promedio',
+      5: 'Atractivo',
+      6: 'Muy Atractivo',
+      7: 'Hermoso',
+      8: 'Muy Hermoso',
+      9: 'Impresionante',
+      10: 'Extraordinariamente Hermoso'
+    }
+  },
   pose: 'Postura del Personaje',
   poseSelect: 'Seleccionar una postura',
   poseDescription: 'Descripción de la Postura',

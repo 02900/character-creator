@@ -60,6 +60,11 @@ export interface CharacterConfig {
   race?: string;     // ID of the selected race, references Race.id
   class?: string;    // ID of the selected class, references Class.id
   level?: number;    // Character's power level (1-100)
+  sex?: 'male' | 'female' | 'undefined'; // Character's biological sex
+  beauty?: number;   // Character's physical attractiveness rating (1-10)
+                     // 1: Extremely Plain, 2: Very Plain, 3: Plain, 4: Average,
+                     // 5: Attractive, 6: Very Attractive, 7: Beautiful, 8: Very Beautiful,
+                     // 9: Stunning, 10: Extraordinarily Beautiful
   pose: 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle' | 'action_ready' | 'casting' | 'dynamic_movement' | 'defensive' | 'meditative'; // Character's stance
   expression: string; // Facial expression description
   muscleDefinition?: 'slim' | 'athletic' | 'muscular' | 'bulky' | 'heroic' | 'average'; // Character's physique type
