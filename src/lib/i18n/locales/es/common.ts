@@ -15,6 +15,12 @@ export const common = {
   exportError: "Error al exportar",
   exportErrorDescription: "Hubo un problema al exportar los datos de tu personaje",
   
+  // Clipboard
+  copyToClipboard: "Copiar al Portapapeles",
+  copiedToClipboard: "Copiado al portapapeles",
+  configCopiedDescription: "Configuración JSON copiada al portapapeles",
+  clipboardError: "Error al copiar al portapapeles",
+  
   // Save Character
   saveCharacter: "Guardar Personaje",
   saveCharacterDescription: "Introduce un nombre para tu personaje",
