@@ -42,10 +42,10 @@ export function HandsSection() {
     
     // Define hand configurations for each mode
     const handConfigs = {
-      weapon: { right: 'weapon_grip' as RightHandPose, left: 'shield_hold' as LeftHandPose },
-      shield: { right: 'fist' as RightHandPose, left: 'shield_hold' as LeftHandPose },
-      magic: { right: 'magic_circle' as RightHandPose, left: 'holding_orb' as LeftHandPose },
-      spell: { right: 'two_fingers_cast' as RightHandPose, left: 'spell_casting' as LeftHandPose }
+      weapon: { right: 'weapon_grip' as RightHandPose, left: 'weapon_grip' as LeftHandPose },
+      shield: { right: 'shield_hold' as RightHandPose, left: 'shield_hold' as LeftHandPose },
+      magic: { right: 'magic_circle' as RightHandPose, left: 'magic_circle' as LeftHandPose },
+      spell: { right: 'two_fingers_cast' as RightHandPose, left: 'two_fingers_cast' as LeftHandPose }
     }
     
     // Update both hands with the appropriate poses
@@ -148,17 +148,17 @@ export function HandsSection() {
             <p>
               {t('modules.character-creator.components.forms.CharacterForm.hands.rightHand', { fallback: 'Right hand' })}: <span className="font-medium">
                 {handMode === 'weapon' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.weapon_grip', { fallback: 'Weapon grip' })}
-                {handMode === 'shield' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.fist', { fallback: 'Fist' })}
+                {handMode === 'shield' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.shield_hold', { fallback: 'Shield hold' })}
                 {handMode === 'magic' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.magic_circle', { fallback: 'Magic circle' })}
                 {handMode === 'spell' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.right.two_fingers_cast', { fallback: 'Two fingers cast' })}
               </span>
             </p>
             <p>
               {t('modules.character-creator.components.forms.CharacterForm.hands.leftHand', { fallback: 'Left hand' })}: <span className="font-medium">
-                {handMode === 'weapon' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.shield_hold', { fallback: 'Shield hold' })}
+                {handMode === 'weapon' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.weapon_grip', { fallback: 'Weapon Grip' })}
                 {handMode === 'shield' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.shield_hold', { fallback: 'Shield hold' })}
-                {handMode === 'magic' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.holding_orb', { fallback: 'Holding orb' })}
-                {handMode === 'spell' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.spell_casting', { fallback: 'Spell casting' })}
+                {handMode === 'magic' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.magic_circle', { fallback: 'Magic circle' })}
+                {handMode === 'spell' && t('modules.character-creator.components.forms.CharacterForm.hands.positions.left.two_fingers_cast', { fallback: 'Two fingers cast' })}
               </span>
             </p>
           </div>

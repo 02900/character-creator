@@ -182,4 +182,4 @@ export interface WeaponsConfig {
 To generate an image:
 
 > Provide a JSON payload following the structure above.  
-> All drawings must be clean line art only — no shading or grayscale — and suitable for coloring books. 
+> All drawings must be clean line art only — no shading or grayscale — and suitable for coloring books. Only use lines, no color.

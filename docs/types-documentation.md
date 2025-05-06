@@ -65,6 +65,11 @@ export interface CharacterConfig {
   hands: {
     right: 'none' | 'clawed_upward' | 'open_palm' | 'two_fingers_cast' | 'fist' | 'pointing' | 'weapon_grip' | 'magic_circle'; // Right hand pose
     left: 'none' | 'open_loose' | 'spirit_guiding' | 'half_fist' | 'shield_hold' | 'clenched_fist' | 'holding_orb' | 'spell_casting'; // Left hand pose
+    // Note: The application supports coordination modes where both hands work together in preset positions:
+    // - Weapon grip (both hands holding a weapon)
+    // - Shield hold (both hands holding a shield)
+    // - Magic circle (both hands creating a magic circle)
+    // - Spell casting (both hands in casting gestures)
   };
   clothing?: {
     type?: string;    // Type of clothing worn (e.g., "tattered robe", "plate armor")
