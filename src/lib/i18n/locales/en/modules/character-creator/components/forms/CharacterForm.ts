@@ -28,17 +28,64 @@ export const CharacterForm = {
       naive_wonder: 'Naive Wonder'
     }
   },
+  muscleDefinition: {
+    title: 'Muscle Definition',
+    label: 'Build Type',
+    placeholder: 'Select body type',
+    slim: 'Slim',
+    athletic: 'Athletic',
+    muscular: 'Muscular',
+    bulky: 'Bulky',
+    heroic: 'Heroic',
+    average: 'Average'
+  },
   pose: 'Character Pose',
   poseSelect: 'Select a pose',
+  poseDescription: 'Pose Description',
   handPositionSelect: 'Select position',
   flowStyleSelect: 'Select flow style',
   
   poses: {
-    frontal: 'Frontal',
-    three_quarter: 'Three Quarter',
-    side: 'Side',
-    low_angle: 'Low Angle',
-    high_angle: 'High Angle'
+    frontal: {
+      name: 'Frontal',
+      description: 'Character facing directly forward, showcasing facial features and symmetrical body pose.'
+    },
+    three_quarter: {
+      name: 'Three Quarter',
+      description: 'Character at a 45-degree angle, balancing detail and dynamic perspective.'
+    },
+    side: {
+      name: 'Side',
+      description: 'Character in profile view, emphasizing silhouette and lateral design elements.'
+    },
+    low_angle: {
+      name: 'Low Angle',
+      description: 'Viewed from below, creating an imposing and powerful appearance.'
+    },
+    high_angle: {
+      name: 'High Angle',
+      description: 'Viewed from above, conveying vulnerability or providing an overhead perspective.'
+    },
+    action_ready: {
+      name: 'Action Ready',
+      description: 'Poised for combat with weapons drawn or magic at the ready.'
+    },
+    casting: {
+      name: 'Casting',
+      description: 'In the middle of casting a spell, with focused expression and mystical gestures.'
+    },
+    dynamic_movement: {
+      name: 'Dynamic Movement',
+      description: 'Captured mid-motion, showing energy and momentum in flowing action.'
+    },
+    defensive: {
+      name: 'Defensive',
+      description: 'Shielded stance that emphasizes protection and resilience.'
+    },
+    meditative: {
+      name: 'Meditative',
+      description: 'Peaceful, contemplative pose reflecting inner focus and spiritual connection.'
+    }
   },
   
   hands: {

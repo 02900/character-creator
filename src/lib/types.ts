@@ -32,8 +32,9 @@ export interface CharacterConfig {
   race?: string; // ID of the selected race
   class?: string; // ID of the selected class
   level?: number; // Character level (1-100)
-  pose: 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle';
+  pose: 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle' | 'action_ready' | 'casting' | 'dynamic_movement' | 'defensive' | 'meditative';
   expression: string;
+  muscleDefinition?: 'slim' | 'athletic' | 'muscular' | 'bulky' | 'heroic' | 'average'; // Character's muscle definition
   hands: {
     right: 'none' | 'clawed_upward' | 'open_palm' | 'two_fingers_cast' | 'fist' | 'pointing' | 'weapon_grip' | 'magic_circle';
     left: 'none' | 'open_loose' | 'spirit_guiding' | 'half_fist' | 'shield_hold' | 'clenched_fist' | 'holding_orb' | 'spell_casting';
@@ -127,12 +128,13 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
     level: 50,
     pose: 'three_quarter',
     expression: 'piercing hollow eyes under hood',
+    muscleDefinition: 'slim',
     hands: {
       right: 'clawed_upward',
       left: 'open_loose'
     },
     clothing: {
-      type: 'tattered robe',
+      type: 'default',
       patterns: [],
       flow: 'dynamic'
     }
