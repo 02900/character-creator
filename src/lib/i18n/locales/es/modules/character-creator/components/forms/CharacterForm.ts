@@ -45,6 +45,23 @@ export const CharacterForm = {
     title: 'Posición de las Manos',
     right: 'Mano Derecha',
     left: 'Mano Izquierda',
+    rightHand: 'Mano derecha',
+    leftHand: 'Mano izquierda',
+    mode: 'Coordinación de Manos',
+    selectMode: 'Seleccionar modo de manos',
+    modes: {
+      separate: 'Independiente (controlar cada mano por separado)',
+      weapon: 'Empuñar arma con ambas manos',
+      shield: 'Sujetar escudo con ambas manos',
+      magic: 'Crear círculo mágico',
+      spell: 'Lanzar hechizo con ambas manos'
+    },
+    currentMode: {
+      weapon: 'Ambas manos empuñando un arma',
+      shield: 'Ambas manos sujetando un escudo',
+      magic: 'Ambas manos creando un círculo mágico',
+      spell: 'Ambas manos lanzando un hechizo'
+    },
     positions: {
       none: 'Ninguna (Oculta)',
       right: {
