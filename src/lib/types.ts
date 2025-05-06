@@ -106,8 +106,8 @@ export interface WeaponsConfig {
 }
 
 export const defaultConfig: ColoringBookIllustrationConfig = {
-  artStyle: 'anime',
-  genres: ['isekai', 'dark_fantasy'],
+  artStyle: 'manga',
+  genres: ['isekai', 'dark_fantasy', 'post_apocalyptic', 'horror'],
   weapons: {
     category: 'one_handed',
     mainHand: 'staff',
@@ -133,7 +133,7 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
     },
     clothing: {
       type: 'tattered robe',
-      patterns: ['skeletal', 'runes'],
+      patterns: [],
       flow: 'dynamic'
     }
   },
@@ -144,8 +144,8 @@ export const defaultConfig: ColoringBookIllustrationConfig = {
     groundCracks: false
   },
   background: {
-    clouds: true,
-    lightning: true,
+    clouds: false,
+    lightning: false,
     scenery: 'forest',
     weatherEffect: 'clear',
     timeOfDay: 'dusk',

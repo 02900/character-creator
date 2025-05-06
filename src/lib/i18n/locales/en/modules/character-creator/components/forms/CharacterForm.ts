@@ -45,6 +45,23 @@ export const CharacterForm = {
     title: 'Hand Positions',
     right: 'Right Hand',
     left: 'Left Hand',
+    rightHand: 'Right hand',
+    leftHand: 'Left hand',
+    mode: 'Hand Coordination',
+    selectMode: 'Select hand mode',
+    modes: {
+      separate: 'Independent (control each hand separately)',
+      weapon: 'Two-handed weapon grip',
+      shield: 'Hold shield with both hands',
+      magic: 'Create magic circle',
+      spell: 'Cast spell with both hands'
+    },
+    currentMode: {
+      weapon: 'Both hands gripping a weapon',
+      shield: 'Both hands holding a shield',
+      magic: 'Both hands creating a magic circle',
+      spell: 'Both hands casting a spell'
+    },
     positions: {
       none: 'None (Hidden)',
       right: {
