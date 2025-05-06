@@ -28,17 +28,64 @@ export const CharacterForm = {
       naive_wonder: 'Asombro Ingenuo'
     }
   },
+  muscleDefinition: {
+    title: 'Definición Muscular',
+    label: 'Tipo de Complexión',
+    placeholder: 'Seleccionar tipo de cuerpo',
+    slim: 'Delgado',
+    athletic: 'Atlético',
+    muscular: 'Musculoso',
+    bulky: 'Fornido',
+    heroic: 'Heroico',
+    average: 'Promedio'
+  },
   pose: 'Postura del Personaje',
   poseSelect: 'Seleccionar una postura',
+  poseDescription: 'Descripción de la Postura',
   handPositionSelect: 'Seleccionar posición',
   flowStyleSelect: 'Seleccionar estilo de flujo',
 
   poses: {
-    frontal: 'Frontal',
-    three_quarter: 'Tres cuartos',
-    side: 'Lateral',
-    low_angle: 'Ángulo bajo',
-    high_angle: 'Ángulo alto'
+    frontal: {
+      name: 'Frontal',
+      description: 'Personaje mirando directamente hacia adelante, mostrando rasgos faciales y postura corporal simétrica.'
+    },
+    three_quarter: {
+      name: 'Tres Cuartos',
+      description: 'Personaje en ángulo de 45 grados, equilibrando detalle y perspectiva dinámica.'
+    },
+    side: {
+      name: 'Lateral',
+      description: 'Personaje en vista de perfil, enfatizando la silueta y elementos de diseño laterales.'
+    },
+    low_angle: {
+      name: 'Ángulo Bajo',
+      description: 'Visto desde abajo, creando una apariencia imponente y poderosa.'
+    },
+    high_angle: {
+      name: 'Ángulo Alto',
+      description: 'Visto desde arriba, transmitiendo vulnerabilidad o proporcionando una perspectiva elevada.'
+    },
+    action_ready: {
+      name: 'Listo para Acción',
+      description: 'Preparado para el combate con armas desenvainadas o magia preparada.'
+    },
+    casting: {
+      name: 'Lanzando Hechizo',
+      description: 'En medio de lanzar un hechizo, con expresión concentrada y gestos místicos.'
+    },
+    dynamic_movement: {
+      name: 'Movimiento Dinámico',
+      description: 'Capturado en pleno movimiento, mostrando energía y momentum en acción fluida.'
+    },
+    defensive: {
+      name: 'Defensiva',
+      description: 'Postura protegida que enfatiza la protección y resistencia.'
+    },
+    meditative: {
+      name: 'Meditativa',
+      description: 'Pose pacífica y contemplativa que refleja concentración interior y conexión espiritual.'
+    }
   },
 
   hands: {

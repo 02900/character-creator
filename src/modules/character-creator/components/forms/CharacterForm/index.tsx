@@ -6,6 +6,7 @@ import { FormHeader } from "./components/FormHeader"
 import { LevelSlider } from "./components/LevelSlider"
 import { ExpressionSelector } from "./components/ExpressionSelector"
 import { PoseSelector } from "./components/PoseSelector"
+import { MuscleDefinitionSection } from "./components/MuscleDefinitionSection"
 import { HandsSection } from "./components/HandsSection"
 import { ClothingSection } from "./components/ClothingSection"
 // Using central store hook instead of initialization hook
@@ -22,6 +23,7 @@ export function CharacterForm() {
         <LevelSlider />
         <ExpressionSelector />
         <PoseSelector />
+        <MuscleDefinitionSection />
         <Separator />
         <HandsSection />
         <Separator />

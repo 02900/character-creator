@@ -60,8 +60,9 @@ export interface CharacterConfig {
   race?: string;     // ID of the selected race, references Race.id
   class?: string;    // ID of the selected class, references Class.id
   level?: number;    // Character's power level (1-100)
-  pose: 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle'; // Character's stance
+  pose: 'frontal' | 'three_quarter' | 'side' | 'low_angle' | 'high_angle' | 'action_ready' | 'casting' | 'dynamic_movement' | 'defensive' | 'meditative'; // Character's stance
   expression: string; // Facial expression description
+  muscleDefinition?: 'slim' | 'athletic' | 'muscular' | 'bulky' | 'heroic' | 'average'; // Character's physique type
   hands: {
     right: 'none' | 'clawed_upward' | 'open_palm' | 'two_fingers_cast' | 'fist' | 'pointing' | 'weapon_grip' | 'magic_circle'; // Right hand pose
     left: 'none' | 'open_loose' | 'spirit_guiding' | 'half_fist' | 'shield_hold' | 'clenched_fist' | 'holding_orb' | 'spell_casting'; // Left hand pose
